@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkout Page </title>
+        <link rel="stylesheet" href="../Style.css/style.css">
+        <style>
+            .receipt-section {
+                margin: 0 auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .receipt-card {
+                width: 90%;
+                max-width: 450px;
+            }
+            .receipt-box{
+                background:white;
+                border:2px dashed black;
+                border-radius:8px;
+                padding:15px;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 25px;
+            }
+            .receipt-box h3{
+                margin-top:0;
+                margin-bottom:10px;
+            }
+
+            .receipt-box p{
+                margin:6px 0;
+            }
+
+            #finishButton{
+                background-color: black;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 20px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+                /* Add hover effect to the finish button */
+            #finishButton:hover {
+                background-color: #333;
+                transform: scale(1.05);
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <nav class="navigationbar">
+                <ul class="navigation-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="Checkout.html" class="active">Checkout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br><br>
+        <main class="container">
+            <h1 class="title" style="text-align: center;">Checkout Summary</h1>
+            <!--Checkout Summary-->
+            <section class="Summary-Cart">
+                <h3>Your Order</h3>
+                <div id="checkoutItems">
+                    </div>
+                <p><strong>Total Amount to Pay: </strong> <span id="checkoutTotal">$0.00</span></p>
+            </section>
+            <hr>
+            <!--Checkout Form-->
+            <section class="checkout-form" style="font-size: 34px;">
+                <h3>Shipping & Payment Details</h3>
+                <form id="paymentForm" style="background-color: blanchedalmond;">
+                    <label for="fullName">Full Name:</label><br>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    <br><br>
+                    <label for="Trn">Tax Registration Number (TRN):</label><br>
+                    <input type="text" id="Trn" placeholder="Enter your TRN" required>
+                    <br><br>
+                    <label for="Address">Address:</label><br>
+                    <textarea id="address" placeholder="Enter your Address" required></textarea>
+                    <br><br>
+                    <label for="amountPaid">Amount Being Paid ($):</label><br>
+                    <input type="number" id="amountPaid" step="0.01" required>
+                    <br>
+                    <div class="form-buttons">
+                        <button type="button" onclick="confirmOrder()">Confirm</button>
+                        <button type="reset" onclick="cancelOrder()">Cancel</button>
+                    </div>
+                </form>
+            </section>
+            <!--Summary CART-->
+            <div class="Summary-Cart">
+                <div class="buttons">
+                    <button onclick="clearCart()">Clear All</button>
+                    <button onclick="processCheckout()">Check Out</button>
+                    <button onclick="window.location.href='index.html'">Close</button>
+                </div>
+            </div>
+            <br><br><br>
+            <!--Receipt section that will display the generated receipt based on user input-->
+            <!-- Receipt section-->
+            <section class="receipt-section" style="margin-left: 20%; visibility: hidden;">
+                <div class="receipt-card" style="background:#cfd7df; width:max-content; height:max-content; padding:30px; border-radius:12px;">
+                    <div class="receipt-box">
+                        <center><h3 style="font-size:44px;">Invoice Receipt</h3></center>
+                        <hr style="width:90px; margin: auto; border-color: cadetblue;" /><br>
+
+                        <h3>GiftcardGo876</h3>
+                        <br>
+
+                        <h4>Invoice Number: <span id="rInvoiceId">---</span></h4>
+                        <hr>
+                        <p>Date of Invoice: <span id="rDate">---</span></p>
+                        <hr>
+                        <p>TRN: <strong><span id="rTRN">---</span></strong></p>
+                        <hr>
+                        <p>Full Name: <strong><span id="rFullname">---</span></strong></p>
+                        <hr>
+                        <p>Address: <strong><span id="rAddress">---</span></strong></p>
+                        <hr><br>
+
+                        <p><strong>Purchased Items:</strong></p>
+                        <div id="rCheckoutItems"></div><br>
+
+                        <p><strong>Total Cost:</strong> $<span id="rAmount">---</span></p>
+                    </div>
+                    <button id="finishButton" onclick="finishOrder()">Finish</button>
+                </div>
+            </section>
+            <br><br><br>
+        </main>
+        <script>
+                function SummaryOrderdisplay(){
+                let cart = JSON.parse(localStorage.getItem('gf_cart')) || [];
+                let Summary = document.getElementById('checkoutItems');
+                let totalDisplay = document.getElementById('checkoutTotal');
+                let total = 0;
+
+                Summary.innerHTML = "";
+
+                if(cart.length === 0){
+                    Summary.innerHTML = "<br><br><p style='color: red; text-align: center; font-size:25px;'>Your cart is empty.</p><br>";
+                } else {
+                    cart.forEach(item => {
+                        let price = parseFloat(item.price);
+                        let tax = price * 0.15;
+                        let discount = price * 0.10;
+                        let subtotal = (price + tax) - discount;
+
+                        Summary.innerHTML += `
+                            <div class="Summary-row">
+                                <strong>${item.name}</strong> - $${subtotal.toFixed(2)}
+                            </div>
+                        `;
+
+                        total += subtotal;
+                    });
+                }
+
+                totalDisplay.innerHTML = '$' + total.toFixed(2);
+
+                // Update receipt items
+                document.getElementById("rCheckoutItems").innerHTML = Summary.innerHTML;
+                document.getElementById("rAmount").textContent = total.toFixed(2);
+            }
+
+            function confirmOrder() {
+                let name = document.getElementById('fullName').value;
+                let amountPaid = parseFloat(document.getElementById('amountPaid').value);
+                let finalTotal = parseFloat(localStorage.getItem('gf_total'));
+
+                if (amountPaid === finalTotal){
+
+                    // SHOW RECEIPT
+                    document.querySelector(".receipt-section").style.visibility = "visible";
+
+                    // BASIC INFO
+                    document.getElementById("rFullname").textContent = name;
+                    document.getElementById("rAddress").textContent =
+                        document.getElementById("address").value;
+
+                    document.getElementById("rTRN").textContent =
+                        document.getElementById("Trn").value;
+
+                    document.getElementById("rDate").textContent =
+                        new Date().toLocaleDateString();
+
+                    document.getElementById("rInvoiceId").textContent =
+                        Math.floor(Math.random() * 1000000);
+
+                    // GET CART DATA
+                    let cart = JSON.parse(localStorage.getItem('gf_cart')) || [];
+
+                    let receiptItems = document.getElementById("rCheckoutItems");
+                    receiptItems.innerHTML = "";
+
+                    cart.forEach(item => {
+                        let price = parseFloat(item.price);
+                        let tax = price * 0.15;
+                        let discount = price * 0.10;
+                        let subtotal = (price + tax) - discount;
+
+                        receiptItems.innerHTML += `
+                            <p>${item.name} - $${subtotal.toFixed(2)}</p>
+                        `;
+                    });
+
+                    // SET TOTAL
+                    document.getElementById("rAmount").textContent = finalTotal.toFixed(2);
+
+                    alert("Thank you, " + name + "! Your order has been confirmed.");
+
+                } else {
+                    alert("The amount entered does not match the total.");
+                    window.location.href = 'index.html';
+
+                }
+            }
+
+            // Prevent errors from missing functions
+            function clearCart(){
+                localStorage.removeItem('gf_cart');
+                location.reload();
+            }
+
+            function processCheckout(){
+                if (document.getElementById('checkoutTotal').innerText === '$0.00' 
+                    || document.getElementById('checkoutTotal').innerText === '$0' 
+                    || document.getElementById('checkoutTotal').innerText === null)
+                {
+                    alert("Your cart is empty. Please add items before checking out.");
+                    return;
+                }
+                alert("Proceeding to payment...");
+                window.onload = SummaryOrderdisplay;
+            }
+
+
+            //Store Invoice in localStorage with the key called AllInvoices (as an array of objects) to access later. 
+            function storeInvoice(){
+                let invoice = {
+                    trn: document.getElementById("Trn").value,
+                    fullName: document.getElementById("fullName").value,
+                    address: document.getElementById("address").value,
+                    date: new Date().toLocaleDateString(),
+                    invoiceId: Math.floor(Math.random() * 1000000),
+                    items: JSON.parse(localStorage.getItem('gf_cart')) || [],
+                    totalAmount: parseFloat(document.getElementById('checkoutTotal').innerText.replace('$',''))
+                };
+
+                //display a message indicating that the invoice has been “sent” to the user’s email. 
+                alert("Invoice has been sent to your email!");
+
+                // Store individual invoice
+                localStorage.setItem('latest_invoice', JSON.stringify(invoice));
+
+                // Store in AllInvoices array
+                let allInvoices = JSON.parse(localStorage.getItem('AllInvoices')) || [];
+                allInvoices.push(invoice);
+                localStorage.setItem('AllInvoices', JSON.stringify(allInvoices));
+            }
+
+             function SummaryOrderdisplay(){
+                let storedTotal = localStorage.getItem('gf_total') || 0;
+                document.getElementById('checkoutTotal').innerHTML = "$" + parseFloat(storedTotal).toFixed(2);
+             }
+            window.onload = function(){
+                SummaryOrderdisplay();
+
+                let total = localStorage.getItem('gf_total');
+
+                if(total){
+                    document.getElementById('amountPaid').value = parseFloat(total).toFixed(2);
+                }
+            }
+
+            //Cancel order function
+            function cancelOrder(){
+                if (confirm("Are you sure you want to cancel the order?")){
+                    localStorage.removeItem('gf_cart');
+                    localStorage.removeItem('gf_total');
+                    window.location.href = 'index.html';
+                }
+            }
+
+            //Finish order function
+            function finishOrder(){
+                //Clear cart and total and redirect to home page
+                localStorage.removeItem('gf_cart');
+                localStorage.removeItem('gf_total');
+                window.location.href = 'index.html';
+            }
+        </script>
+    </body>
+</html>
+
