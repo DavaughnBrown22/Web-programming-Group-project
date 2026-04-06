@@ -1,128 +1,126 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Register - GiftcardGo876</title>
-    <link rel="stylesheet" href="../Style.css/style.css">
-</head>
-<body>
+    <head>
+        <title>Register - GiftcardGo876</title>
+        <link rel="stylesheet" href="../Style.css/style.css">
+    </head>
+    <body>
+        <main class="form-container">
+            <form id="registrationForm" class="pageform">
+                <h2>Register an Account</h2>
 
-    <main class="form-container">
-        <form id="registrationForm" class="pageform">
-            <h2>Register an Account</h2>
+                <label>First Name:</label><br>
+                <input type="text" id="firstname" required><br><br>
 
-            <label>First Name:</label><br>
-            <input type="text" id="firstname" required><br><br>
+                <label>Last Name:</label><br>
+                <input type="text" id="lastname" required><br><br>
 
-            <label>Last Name:</label><br>
-            <input type="text" id="lastname" required><br><br>
+                <label>Date of Birth:</label><br>
+                <input type="date" id="dob" required>
+                <span id="ageErr" style="color:red;"></span><br><br>
 
-            <label>Date of Birth:</label><br>
-            <input type="date" id="dob" required>
-            <span id="ageErr" style="color:red;"></span><br><br>
+                <label>Gender:</label><br>
+                <select id="gender" required>
+                    <option value="">--Select--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select><br><br>
 
-            <label>Gender:</label><br>
-            <select id="gender" required>
-                <option value="">--Select--</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select><br><br>
+                <label>Phone Number:</label><br>
+                <input type="text" id="phone" placeholder="876-000-0000" required><br><br>
 
-            <label>Phone Number:</label><br>
-            <input type="text" id="phone" placeholder="876-000-0000" required><br><br>
+                <label>Email:</label><br>
+                <input type="email" id="email" required><br><br>
 
-            <label>Email:</label><br>
-            <input type="email" id="email" required><br><br>
+                <label>TRN (000-000-000):</label><br>
+                <input type="text" id="trn" placeholder="000-000-000" required>
+                <span id="trnErr" style="color:red;"></span><br><br>
 
-            <label>TRN (000-000-000):</label><br>
-            <input type="text" id="trn" placeholder="000-000-000" required>
-            <span id="trnErr" style="color:red;"></span><br><br>
+                <label>Password (Min 8 chars):</label><br>
+                <input type="password" id="password" required>
+                <span id="passErr" style="color:red;"></span><br><br>
 
-            <label>Password (Min 8 chars):</label><br>
-            <input type="password" id="password" required>
-            <span id="passErr" style="color:red;"></span><br><br>
+                <button type="submit">Register</button>
+                <button type="reset">Cancel</button>
 
-            <button type="submit">Register</button>
-            <button type="reset">Cancel</button>
+                <p>Already a user? <a href="/Codes/index.html">Login here</a></p>
+            </form>
+        </main>
+        </div>
 
-            <p>Already a user? <a href="Login.html">Login here</a></p>
-        </form>
-    </main>
-    </div>
+        <script>
+            document.getElementById("registrationForm").onsubmit = function(event) {
+                event.preventDefault(); 
 
-    <script>
-        document.getElementById("registrationForm").onsubmit = function(event) {
-            event.preventDefault(); 
+                let firstname = document.getElementById('firstname').value.trim();
+                let lastname = document.getElementById('lastname').value.trim();
+                let dob = document.getElementById('dob').value;
+                let gender = document.getElementById('gender').value;
+                let PhoneNumber = document.getElementById('phone').value;
+                let email = document.getElementById('email').value.trim();
+                let trn = document.getElementById('trn').value.trim();
+                let password = document.getElementById('password').value.trim();
+                    
+                let isValid = true;
 
-            let firstname = document.getElementById('firstname').value.trim();
-            let lastname = document.getElementById('lastname').value.trim();
-            let dob = document.getElementById('dob').value;
-            let gender = document.getElementById('gender').value;
-            let PhoneNumber = document.getElementById('phone').value;
-            let email = document.getElementById('email').value.trim();
-            let trn = document.getElementById('trn').value.trim();
-            let password = document.getElementById('password').value.trim();
-                
-            let isValid = true;
-
-            if (password.length < 8) {
-                document.getElementById("passErr").innerHTML = "Password is too short!";
-                isValid = false;
-            } else {
-                document.getElementById("passErr").innerHTML = "";
-            }
-
-            let birthDate = new Date(dob);
-            let today = new Date();
-            let age = today.getFullYear() - birthDate.getFullYear();
-            if (age < 18) {
-                document.getElementById("ageErr").innerHTML = "Must be 18+";
-                isValid = false;
-            } else {
-                document.getElementById("ageErr").innerHTML = "";
-            }
-
-
-            if (trn.length != 11 || trn.charAt(3) != '-' || trn.charAt(7) != '-') {
-                document.getElementById("trnErr").innerHTML = "Use 000-000-000";
-                isValid = false;
-            } else {
-                document.getElementById("trnErr").innerHTML = "";
-            }
-
-        
-            if (isValid) {
-                
-                var currentData = localStorage.getItem("RegistrationData");
-                var userList = [];
-                
-                if (currentData != null) {
-                    userList = JSON.parse(currentData);
+                if (password.length < 8) {
+                    document.getElementById("passErr").innerHTML = "Password is too short!";
+                    isValid = false;
+                } else {
+                    document.getElementById("passErr").innerHTML = "";
                 }
 
-                
-                var newUser = {
-                    firstname: firstname,
-                    lastname: lastname,
-                    dob: dob,
-                    gender: gender,
-                    PhoneNumber: PhoneNumber,
-                    email: email,
-                    trn: trn,
-                    password:password,
-                    regDate: new Date().toLocaleDateString(),
-                    cart: {},
-                    invoices: []
-                };
+                let birthDate = new Date(dob);
+                let today = new Date();
+                let age = today.getFullYear() - birthDate.getFullYear();
+                if (age < 18) {
+                    document.getElementById("ageErr").innerHTML = "Must be 18+";
+                    isValid = false;
+                } else {
+                    document.getElementById("ageErr").innerHTML = "";
+                }
 
-                
-                userList.push(newUser);
-                localStorage.setItem("RegistrationData", JSON.stringify(userList));
 
-                alert("Success! You can now login.");
-                window.location.href = "Login.html";
-            }
-        };
-    </script>
+                if (trn.length != 11 || trn.charAt(3) != '-' || trn.charAt(7) != '-') {
+                    document.getElementById("trnErr").innerHTML = "Use 000-000-000";
+                    isValid = false;
+                } else {
+                    document.getElementById("trnErr").innerHTML = "";
+                }
 
-</body>
+            
+                if (isValid) {
+                    
+                    var currentData = localStorage.getItem("RegistrationData");
+                    var userList = [];
+                    
+                    if (currentData != null) {
+                        userList = JSON.parse(currentData);
+                    }
+
+                    
+                    var newUser = {
+                        firstname: firstname,
+                        lastname: lastname,
+                        dob: dob,
+                        gender: gender,
+                        PhoneNumber: PhoneNumber,
+                        email: email,
+                        trn: trn,
+                        password:password,
+                        regDate: new Date().toLocaleDateString(),
+                        cart: {},
+                        invoices: []
+                    };
+
+                    
+                    userList.push(newUser);
+                    localStorage.setItem("RegistrationData", JSON.stringify(userList));
+
+                    alert("Success! You can now login.");
+                    window.location.href = "/Codes/product.html";
+                }
+            };
+        </script>
+    </body>
 </html>
