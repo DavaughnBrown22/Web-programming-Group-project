@@ -2,79 +2,77 @@
 <!-- ID number: 2111745 -->
 <!DOCTYPE html>
 <html lang ="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name = "viewport" content = "width=device-width,inital-scale=1" />
-    <title> Login Page </title>
-    <link rel = "stylesheet" href="../Style.css/style.css ">
-</head>
-<body>
-    <main class = "form-container">
-        <form id = "loginform" class = "pageform">
-            <link rel = "stylesheet" href = "..Style.css/style.css">
-            <h2>Hey!!!! Welcome Back</h2>
-
-            <div class = "page-group">
-                <label for= 'trn'> TRN</label>
-                <input type = "text" id = "trn" name = 'trn' placeholder = "000-000-000" required>
-                <span class = "error-message" id = "ErrorTrn"></span>
-            </div>
-
-            <div class = "page-group">
-                <label for= 'password'> Password</label>
-                <input type = "password" id = "password" name = 'password' required>
-                <span class = "error-message" id = "ErrorPassword"></span>
-            </div>
-
-            <button type = "submit" id = "loginBtn"> Login </button>
-            <button type = "reset" id  = "cancelBtn"> Cancel </button>
-            <p> Are you a New user?<a href = "Registration.html">Register here</a></p>
-            <p><a href = "Reset Password.html" id = "resetPassword"> Reset Password </a></p>
-
-            <p id="message" style="color:red; font-weight:bold;"></p>
-        </form>
-    </main>
-</body>
-<script>
-
-    let attempts = 0;
-    document.addEventListener('DOMContentLoaded', () => {
-    const loginform = document.getElementById('loginform');
-
-    loginform.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        let trn = document.getElementById('trn').value.trim();
-        let password = document.getElementById('password').value.trim();
-        let msg = document.getElementById("message");
-
-        let storedData = localStorage.getItem("RegistrationData");
-        let userArray = JSON.parse(storedData) || [];
-
-        let Userfound = null;
-            for (let i = 0; i < userArray.length; i++) {
-                if (userArray[i].trn === trn && userArray[i].password === password) {
-                    Userfound = userArray[i];
-                    break; 
-                }
-            }
-           
-            if (Userfound != null) {
-                alert("Login successful!");
-                localStorage.setItem("currentUser", JSON.stringify(Userfound));
-                window.location.href = "index.html"; 
-            } else {
-                attempts = attempts + 1;
-
-                if (attempts >= 3) {
-                    alert("Account Locked! Redirecting...");
-                    window.location.href = "Account Lock.html";
-                } else {
-                    msg.innerHTML = "Invalid TRN or Password. Attempt " + attempts + " of 3.";
-                }
-            }
-        });
-    });
-</script>
-</body>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name = "viewport" content = "width=device-width,inital-scale=1" />
+        <title> Login Page </title>
+        <link rel = "stylesheet" href="../Style.css/style.css ">
+    </head>
+    <body>
+        <main class = "form-container">
+            <form id = "loginform" class = "pageform">
+                <link rel = "stylesheet" href = "..Style.css/style.css">
+                <h2>Hey!!!! Welcome Back</h2>
+    
+                <div class = "page-group">
+                    <label for= 'trn'> TRN</label>
+                    <input type = "text" id = "trn" name = 'trn' placeholder = "000-000-000" required>
+                    <span class = "error-message" id = "ErrorTrn"></span>
+                </div>
+    
+                <div class = "page-group">
+                    <label for= 'password'> Password</label>
+                    <input type = "password" id = "password" name = 'password' required>
+                    <span class = "error-message" id = "ErrorPassword"></span>
+                </div>
+    
+                <button type = "submit" id = "loginBtn"> Login </button>
+                <button type = "reset" id  = "cancelBtn"> Cancel </button>
+                <p> Are you a New user?<a href = "Registration.html">Register here</a></p>
+                <p><a href = "Reset Password.html" id = "resetPassword"> Reset Password </a></p>
+    
+                <p id="message" style="color:red; font-weight:bold;"></p>
+            </form>
+        </main>
+        <script>
+            let attempts = 0;
+            document.addEventListener('DOMContentLoaded', () => {
+            const loginform = document.getElementById('loginform');
+        
+            loginform.addEventListener('submit', (e) => {
+                e.preventDefault();
+        
+                let trn = document.getElementById('trn').value.trim();
+                let password = document.getElementById('password').value.trim();
+                let msg = document.getElementById("message");
+        
+                let storedData = localStorage.getItem("RegistrationData");
+                let userArray = JSON.parse(storedData) || [];
+        
+                let Userfound = null;
+                    for (let i = 0; i < userArray.length; i++) {
+                        if (userArray[i].trn === trn && userArray[i].password === password) {
+                            Userfound = userArray[i];
+                            break; 
+                        }
+                    }
+                   
+                    if (Userfound != null) {
+                        alert("Login successful!");
+                        localStorage.setItem("currentUser", JSON.stringify(Userfound));
+                        window.location.href = "../Codes/product.html"; 
+                    } else {
+                        attempts = attempts + 1;
+        
+                        if (attempts >= 3) {
+                            alert("Account Locked! Redirecting...");
+                            window.location.href = "../Codes/Account Lock.html";
+                        } else {
+                            msg.innerHTML = "Invalid TRN or Password. Attempt " + attempts + " of 3.";
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
