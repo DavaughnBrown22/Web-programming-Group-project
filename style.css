@@ -1,0 +1,299 @@
+body {
+    overflow-x: hidden;
+}
+
+/*Index/ Homepage*/
+.form-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 19px;
+}
+
+.pageform{
+    width: 100%;
+    padding: 2.5rem;
+    border-radius: 7px;
+    max-width: 400px;
+    box-shadow: 0 4px 10px black;
+}
+
+
+.page-group{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-group label{
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.error-message{
+    color: red;
+    font-size: 0.75rem;
+    margin-top:0.25rem;
+}
+
+*   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*navigation Section*/
+.navigationbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4%;
+    background-color: #2d2d2d;
+    color: whitesmoke;
+}
+
+.navigation-links{
+    display: flex;
+    list-style: none;
+    gap: 19px;
+}
+
+.navigation-links a{
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.logo img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.Layout-main{
+    display: flex;
+    align-items: flex-start;
+}
+.sidebar {
+    width: 200px;
+    background-color: gray;
+    padding: 19px;
+    position: sticky;
+    top: 19px;
+    height: fit-content;
+    border-radius: 7px;
+    margin: 19px;
+}
+
+.sidebar h3{
+    color: whitesmoke;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li{
+    margin-bottom: 9px;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    color: black;
+    transition: 0.4s;
+}
+
+.sidebar ul li a:hover{
+    color: black;
+    padding-left: 4px;
+}
+
+.content-area{
+    flex: 1;
+}
+.Label{
+    height: 60vh;
+    background-color: gray;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    text-align: center;
+} 
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+
+/*Production Section*/
+.GiftCard{
+    background: grey;
+    border-radius: 12px;
+    padding: 15px;
+    color: whitesmoke;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.GiftCard img{
+    width: 100%;
+    border-radius: 7px;
+}
+
+/*About Section*/
+.AboutSection{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.card-information{
+    background: #2d2d2d;
+    color: whitesmoke;
+    border-radius: 11px;
+    padding: 27px;
+    box-shadow: 0 9px 25px;
+    max-width: 600px;
+    width: 90%;
+    line-height: 1.7;
+}
+
+.Add-to-Cart{
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    padding: 9px 19px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 9px;
+    width: 100%;
+}
+
+.Add-to-Cart:hover{
+    background-color: black;
+    transform: scale(1.01);
+}
+
+.Add-to-Cart:active{
+    transform: scale(0.95);
+}
+
+/*Cart Section*/
+.Cart-Table{
+    border-collapse: collapse;
+    margin: 19px 0;
+    width: 100%;
+    color: black;;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.Cart-Table th{
+    border-color: black;
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+.Cart-Table td{
+    padding: 14px;
+    border-bottom:  1px solid #444;
+}
+
+/*Checkout Section*/
+.Summary-Cart{
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    margin-top: 25px;
+    padding: 20px;
+    background: #2d2d2d;
+}
+.Summary-Cart button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 9px 19px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 23px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.buttons {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.checkout-form{
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    margin: 19px 0;
+}
+
+.checkout-form label {
+    font-weight: bold;
+    color: black;
+    font-size: 24px;
+    margin-left: 6%;
+}
+ 
+.checkout-form input,
+.checkout-form textarea{
+    width: 50%;
+    border: 1px solid beige;
+    padding: 11px;
+    margin-left: 6%;
+    border-radius: 3px;
+    font-size: 24px;
+}
+.form-buttons{
+    display:flex;
+    gap: 9px;
+    justify-content: center;
+    margin-left: 6%;
+    padding: 20px; 
+    width: 400px; 
+}
+.form-buttons button{
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    padding: 9px 19px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size:23px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .containerm .form-container{
+        min-width: 600px;
+        overflow-x: auto
+    }
+}
+
+@media screen and (min-width: 950px){
+    .container, .Layout-main{
+        min-width: 950px;
+        margin: 0 auto;
+    }
+}
+
