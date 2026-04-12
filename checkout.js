@@ -38,6 +38,8 @@ function confirmOrder() {
     let finalTotal = parseFloat(localStorage.getItem('gf_total'));
 
     if (amountPaid === finalTotal){
+        
+        window.location.href = '../Codes/invoice.html';
 
         // SHOW RECEIPT
         document.querySelector(".receipt-section").style.visibility = "visible";
@@ -80,7 +82,7 @@ function confirmOrder() {
 
     } else {
         alert("The amount entered does not match the total.");
-        window.location.href = 'index.html';
+        window.location.href = '../Codes/product.html';
 
     }
 }
@@ -128,10 +130,6 @@ function storeInvoice(){
     localStorage.setItem('AllInvoices', JSON.stringify(allInvoices));
 }
 
-    function SummaryOrderdisplay(){
-    let storedTotal = localStorage.getItem('gf_total') || 0;
-    document.getElementById('checkoutTotal').innerHTML = "$" + parseFloat(storedTotal).toFixed(2);
-    }
 window.onload = function(){
     SummaryOrderdisplay();
 
