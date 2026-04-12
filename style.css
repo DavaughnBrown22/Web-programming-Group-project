@@ -1,8 +1,9 @@
 body {
     overflow-x: hidden;
+    
 }
 
-/*Index/ Homepage*/
+/*Product/ Homepage*/
 .form-container{
     display:flex;
     align-items: center;
@@ -51,6 +52,7 @@ body {
     padding: 1rem 4%;
     background-color: #2d2d2d;
     color: whitesmoke;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .navigation-links{
@@ -64,12 +66,14 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: 0.4s;
+    font-size:26px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.logo img{
+.logo img {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    width: 200%;
+    max-width: 400%;
 }
 
 .Layout-main{
@@ -77,8 +81,8 @@ body {
     align-items: flex-start;
 }
 .sidebar {
-    width: 200px;
-    background-color: gray;
+    width: 300px;
+    background-color: rgba(128, 128, 128, 0.604);
     padding: 19px;
     position: sticky;
     top: 19px;
@@ -88,9 +92,11 @@ body {
 }
 
 .sidebar h3{
-    color: whitesmoke;
+    color: darkblue;
     margin-bottom: 14px;
-    font-size: 1.2rem;
+    font-weight: lighter;
+    font-size: 36px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .sidebar ul {
@@ -103,13 +109,18 @@ body {
 }
 .sidebar ul li a{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     transition: 0.4s;
+    font-size:26px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
 }
 
 .sidebar ul li a:hover{
-    color: black;
+    color: darkblue;
     padding-left: 4px;
+    font-size:26px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .content-area{
@@ -117,7 +128,7 @@ body {
 }
 .Label{
     height: 60vh;
-    background-color: gray;
+    background-image: linear-gradient(to bottom, rgb(85, 225, 173), rgb(121, 115, 226));
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -142,6 +153,8 @@ body {
     color: whitesmoke;
     text-align: center;
     border: 1px solid grey;
+    font-size:20px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .GiftCard img{
@@ -223,13 +236,14 @@ body {
     background: #2d2d2d;
 }
 .Summary-Cart button{
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: none;
     padding: 9px 19px;
     border-radius: 4px;
     font-weight: bold;
     font-size: 23px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
@@ -248,7 +262,7 @@ body {
 
 .checkout-form label {
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 24px;
     margin-left: 6%;
 }
@@ -256,7 +270,7 @@ body {
 .checkout-form input,
 .checkout-form textarea{
     width: 50%;
-    border: 1px solid beige;
+    border: 1px solid darkblue;
     padding: 11px;
     margin-left: 6%;
     border-radius: 3px;
@@ -271,8 +285,8 @@ body {
     width: 400px; 
 }
 .form-buttons button{
-    background-color: black;
-    color: whitesmoke;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: none;
     padding: 9px 19px;
     border-radius: 4px;
