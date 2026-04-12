@@ -9,13 +9,49 @@
         <meta name = "viewport" content = "width=device-width,inital-scale=1" />
         <title> Homepage </title>
         <link rel = "stylesheet" href="../Style.css/style.css ">
+        <style>
+            .title{
+                text-align: center;
+                font-size: 56px;
+                color: darkblue;
+                font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                margin-bottom: 30px;
+            }
+            
+            .Label h1{
+                font-size:56px; 
+                font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .Label p{
+                margin-top: 20px; 
+                font-size:36px; 
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .Label P{
+                font-size:24px; 
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .GiftCard h3 {
+                font-size:26px; 
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .GiftCard p{
+                font-size:20px; 
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .GiftCard button{
+                font-size:20px; 
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+        </style>
         <script src="../Style.css/product2.js"></script>
     </head>
     <body>
         <header>
             <nav class = "navigationbar">
-                <div class = "logo"></div>
-                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 40px;">
+                <div class="logo"></div>
+                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 90px; border-radius: 90%;">
                 <ul class = "navigation-links">
                     <li><a href = "/Codes/product.html" class = "active"> Home </a></li>
                     <li><a href = "/Codes/AboutUs.html"> About Us </a></li>
@@ -24,18 +60,17 @@
                 </ul>
             </nav>
         </header>
-
-        <section class = "Label">
-            <h1> Welcome to GiftcardGo876</h1>
-            <p> The trusted destination for Giftcard selling</p>
-            <P> Get a variety of Giftcards now!!! from Entertainment to Gaming to Retail Giftcards</P>
+        <section class="Label">
+            <h1 style="font-size:56px; font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> Welcome to GiftcardGo876</h1>
+            <p style="margin-top: 20px; font-size:36px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> The trusted destination for Giftcard selling</p>
+            <P style="font-size:24px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Get a variety of Giftcards now!!! from Entertainment to Gaming to Retail Giftcards</P>
             <P></P>
         </section>
 
         <main class = "Layout-main">
             <aside class = "sidebar">
                 <h3>Categories</h3>
-                <ul>
+                <ul style=" color:aliceblue; font-size:26px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
                     <li><a href = "#Gaming">Gaming</a></li>
                     <li><a href = "#Retail">Retail</a></li>
                     <li><a href = "#Entertainment">Entertainment</a></li>
@@ -43,7 +78,8 @@
             </aside>
             
             <div class = "content-area">
-                
+                <!--Gaming section-->
+                <br><br>
                 <section id = "Gaming" class = "container">
                     <h2 class = "title"> Gaming Giftcards on sale now!!!!!! </h2>
                     <div class = "grid">
@@ -51,7 +87,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 10.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $10 Playstation Gift card</h3>
-                                <P class = "Price"> $1576.00 JMD</P>
+                                <p class = "Price"> $1576.00 JMD</p>
                                 <button class = "Add-to-Cart" data-name = "$10 Playstation Giftcard" data-price= "1576.00">Add to Cart</button>
                             </div>
                         </div>
@@ -60,7 +96,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 25.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $25 Playstation Gift card</h3>
-                                <P class = "Price"> $3940.15 JMD </P>
+                                <p class = "Price"> $3940.15 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $25 Playstation Giftcard" data-price= "3950.15">Add to Cart</button>
                             </div>
                         </div>
@@ -69,7 +105,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 50.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $50 Playstation Gift card</h3>
-                                <P class = "Price"> $7880.30 JMD</P>
+                                <p class = "Price"> $7880.30 JMD</p>
                                 <button class = "Add-to-Cart" data-name = " $50 Playstation Giftcard" data-price= "7880.30">Add to Cart</button>
                             </div>
                         </div>
@@ -78,7 +114,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 75.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $75 Playstation Gift card</h3>
-                                <P class = "Price"> $11820.44 JMD </P>
+                                <p class = "Price"> $11820.44 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$75 Playstation Giftcard" data-price= "11820.44">Add to Cart</button>
                             </div>
                         </div>
@@ -87,7 +123,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 100.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $100 Playstation Gift card</h3>
-                                <P class = "Price"> $15760.59 JMD </P>
+                                <p class = "Price"> $15760.59 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$100 Playstation Giftcard" data-price= "15760.59">Add to Cart</button>
                             </div>
                         </div>
@@ -96,7 +132,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 150.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $150 Playstation Gift card</h3>
-                                <P class = "Price"> $23640.89 JMD</P>
+                                <p class = "Price"> $23640.89 JMD</p>
                                 <button class = "Add-to-Cart" data-name = "$150 Playstation Giftcard" data-price= "23640.89">Add to Cart</button>
                             </div>
                         </div>
@@ -105,8 +141,8 @@
                             <img src = "../Assets/Playstation4 Giftcard 200.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $200 Playstation Gift card</h3>
-                                <P class = "Price"> $31521.18 JMD </P>
-                            <button class = "Add-to-Cart" data-name = "$200 Playstation Giftcard" data-price= "31521.18">Add to Cart</button>
+                                <p class = "Price"> $31521.18 JMD </p>
+                                <button class = "Add-to-Cart" data-name = "$200 Playstation Giftcard" data-price= "31521.18">Add to Cart</button>
                             </div>
                         </div>
 
@@ -114,7 +150,7 @@
                             <img src = "../Assets/Playstation4 Giftcard 250.jpg" alt = "Playstation Gift card">
                             <div class = "Information">
                                 <h3> $250  Playstation Gift card</h3>
-                                <P class = "Price"> $39401.48 JMD </P>
+                                <p class = "Price"> $39401.48 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$250 Playstation Giftcard" data-price= "39401.48">Add to Cart</button>
                             </div>
                         </div>
@@ -123,8 +159,8 @@
                             <img src = "../Assets/Xbox Giftcard 10.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $10 Xbox Gift card</h3>
-                                <P class = "Price"> $1576.06 JMD </P>
-                            <button class = "Add-to-Cart" data-name = "$10 Xbox Giftcard" data-price= "1576.06">Add to Cart</button>
+                                <p class = "Price"> $1576.06 JMD </p>
+                                <button class = "Add-to-Cart" data-name = "$10 Xbox Giftcard" data-price= "1576.06">Add to Cart</button>
                             </div>
                         </div>
 
@@ -132,7 +168,7 @@
                             <img src = "../Assets/Xbox Giftcard 15.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $15 Xbox Gift card</h3>
-                                <P class = "Price"> $2364.09 JMD </P>
+                                <p class = "Price"> $2364.09 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$15 Xbox Giftcard" data-price= "2364.09">Add to Cart</button>
                             </div>
                         </div>
@@ -141,7 +177,7 @@
                             <img src = "../Assets/Xbox Giftcard 20.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $20 Xbox Gift card</h3>
-                                <P class = "Price"> $3152.12 JMD </P>
+                                <p class = "Price"> $3152.12 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$20 Xbox Giftcard" data-price= "3152.12">Add to Cart</button>
                             </div>
                         </div>
@@ -150,8 +186,8 @@
                             <img src = "../Assets/Xbox Giftcard 25.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $25 Xbox Gift card</h3>
-                                <P class = "Price"> $3940.15 JMD </P>
-                            <button class = "Add-to-Cart" data-name = "$25 Xbox Giftcard" data-price= "3940.15">Add to Cart</button>
+                                <p class = "Price"> $3940.15 JMD </p>
+                                <button class = "Add-to-Cart" data-name = "$25 Xbox Giftcard" data-price= "3940.15">Add to Cart</button>
                             </div>
                         </div>
 
@@ -159,7 +195,7 @@
                             <img src = "../Assets/Xbox Giftcard 30.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3>$30 Xbox Gift card</h3>
-                                <P class = "Price"> $4728.18 JMD </P>
+                                <p class = "Price"> $4728.18 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$30 Xbox Giftcard" data-price= "4728.18">Add to Cart</button>
                             </div>
                         </div>
@@ -169,7 +205,7 @@
                             <img src = "../Assets/Xbox Giftcard 40.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $40 Xbox Gift card</h3>
-                                <P class = "Price"> $6304.24 JMD </P>
+                                <p class = "Price"> $6304.24 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$40 Xbox Giftcard" data-price= "6304.24">Add to Cart</button>
                             </div>
                         </div>
@@ -179,7 +215,7 @@
                             <img src = "../Assets/Xbox Giftcard 50.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $50 Xbox Gift card</h3>
-                                <P class = "Price"> $7880.30 JMD </P>
+                                <p class = "Price"> $7880.30 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$50 Xbox Giftcard" data-price= "7852.69">Add to Cart</button>
                             </div>
                         </div>
@@ -189,7 +225,7 @@
                             <img src = "../Assets/Xbox Giftcard 60.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $60 Xbox Gift card</h3>
-                                <P class = "Price"> $9456.35.00 JMD </P>
+                                <p class = "Price"> $9456.35.00 JMD </p>
                             <button class = "Add-to-Cart" data-name = "$60 Xbox Giftcard" data-price= "9423.23">Add to Cart</button>
                             </div>
                         </div>
@@ -199,7 +235,7 @@
                             <img src = "../Assets/Xbox Giftcard 70.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $70 Xbox Gift card</h3>
-                                <P class = "Price"> $11032.41 JMD</P>
+                                <p class = "Price"> $11032.41 JMD</p>
                             <button class = "Add-to-Cart" data-name = "$70 Xbox Giftcard" data-price= "11032.41">Add to Cart</button>
                             </div>
                         </div>
@@ -209,7 +245,7 @@
                             <img src = "../Assets/Xbox Giftcard 100.jpg" alt = "Xbox Gift card">
                             <div class = "Information">
                                 <h3> $100 Xbox Gift card</h3>
-                                <P class = "Price"> $15760.59 JMD </P>
+                                <p class = "Price"> $15760.59 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$100 Xbox Giftcard" data-price= "15760.59">Add to Cart</button>
                             </div>
                         </div>
@@ -217,15 +253,15 @@
                 </section>
 
                 <hr>
-        
-                <section id = "Entertainment" class = "container">
+                <!--Entertainment section-->
+                <section id = "Entertainment" class = "container"><br><br>
                     <h2 class = "title">Entertainment Giftcards on sale now !!!</h2>
                     <div class = "grid">
                         <div class = "GiftCard">
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $15 Apple Gift card</h3>
-                                <P class = "Price"> $2366.81 JMD </P>
+                                <p class = "Price"> $2366.81 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$15 Apple Giftcard" data-price= "2366.81">Add to Cart</button>
                             </div>
                         </div>
@@ -234,7 +270,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $25 Apple Gift card</h3>
-                                <P class = "Price"> $3926.35 JMD </P>
+                                <p class = "Price"> $3926.35 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$25 Apple Giftcard" data-price= "3926.35">Add to Cart</button>
                             </div>
                         </div>
@@ -243,7 +279,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $50 Apple Gift card</h3>
-                                <P class = "Price"> $7852.60 JMD </P>
+                                <p class = "Price"> $7852.60 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$50 Apple Giftcard" data-price= "7852.60">Add to Cart</button>
                             </div>
                         </div>
@@ -252,7 +288,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $75 Apple Gift card</h3>
-                                <P class = "Price"> $11820.44 JMD </P>
+                                <p class = "Price"> $11820.44 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$75 Apple Giftcard" data-price= "11820.44">Add to Cart</button>
                             </div>
                         </div>
@@ -262,7 +298,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg"alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $100 Apple Gift card</h3>
-                                <P class = "Price"> $15760.59 JMD </P>
+                                <p class = "Price"> $15760.59 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$100 Apple Giftcard" data-price= "15760.59">Add to Cart</button>
                             </div>
                         </div>
@@ -271,7 +307,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $200 Apple Gift card</h3>
-                                <P class = "Price"> $31521.18 JMD </P>
+                                <p class = "Price"> $31521.18 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$200 Apple Giftcard" data-price= "31521.18">Add to Cart</button>
                             </div>
                         </div>
@@ -280,7 +316,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg"alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $ 300 Apple Gift card</h3>
-                                <P class = "Price"> $29945.12 JMD</P>
+                                <p class = "Price"> $29945.12 JMD</p>
                                 <button class = "Add-to-Cart" data-name = "$300 Apple Giftcard" data-price= "29945.12">Add to Cart</button>
                             </div>
                         </div>
@@ -289,7 +325,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $ 400 Apple Gift card</h3>
-                                <P class = "Price"> $63042.36 JMD </P>
+                                <p class = "Price"> $63042.36 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$400 Apple Giftcard" data-price= "63042.36">Add to Cart</button>
                             </div>
                         </div>
@@ -298,7 +334,7 @@
                             <img src = "../Assets/Applie Giftcard.jpg" alt = "Apple Gift card">
                             <div class = "Information">
                                 <h3> $ 500 Apple Gift card</h3>
-                                <P class = "Price"> $78802.95 JMD </P>
+                                <p class = "Price"> $78802.95 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$500 Apple Giftcard" data-price= "78802.95">Add to Cart</button>
                             </div>
                         </div>
@@ -307,7 +343,7 @@
                             <img src = "../Assets/Netflix giftcards.jpg" alt = "Netflix Gift card">
                             <div class = "Information">
                                 <h3> $ 15 Netflix Gift card</h3>
-                                <P class = "Price"> $2355.81 JMD </P>
+                                <p class = "Price"> $2355.81 JMD </p>
                                 <button class = "Add-to-Cart" data-name =  "$15 Netflix Giftcard" data-price= "2355.81">Add to Cart</button>
                             </div>
                         </div>
@@ -316,7 +352,7 @@
                             <img src ="../Assets/Netflix giftcards.jpg" alt = "Netlfix  Gift card">
                             <div class = "Information">
                                 <h3> $ 25 Netflix Gift card</h3>
-                                <P class = "Price"> $3926.35 JMD </P>
+                                <p class = "Price"> $3926.35 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $25 Netflix Giftcard" data-price= "3926.35">Add to Cart</button>
                             </div>
                         </div>
@@ -325,7 +361,7 @@
                             <img src ="../Assets/Netflix giftcards.jpg"alt = "Netflix Gift card">
                             <div class = "Information">
                                 <h3> $ 50 Netflix Gift card</h3>
-                                <P class = "Price"> $7852.69 JMD </P>
+                                <p class = "Price"> $7852.69 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$50 Netflix Giftcard" data-price= "7852.69">Add to Cart</button>
                             </div>
                         </div>
@@ -335,7 +371,7 @@
                             <img src = "../Assets/Netflix giftcards.jpg" alt = "Netflix Gift card">
                             <div class = "Information">
                                 <h3> $ 100 Netflix Gift card</h3>
-                                <P class = "Price"> $15705.39 JMD</P>
+                                <p class = "Price"> $15705.39 JMD</p>
                                 <button class = "Add-to-Cart" data-name = " $100 Netflix Giftcard" data-price= "15705.39">Add to Cart</button>
                             </div>
                         </div>
@@ -344,15 +380,15 @@
                     </section>
 
                 <hr>
-
-                <section id = "Retail" class = "container">
+                <!--Retail section-->
+                <section id = "Retail" class = "container"><br><br>
                     <h2 class = "title">Retail Giftcards on sale now !!!</h2>
                     <div class = "grid">
                         <div class = "GiftCard">
                             <img src = "../Assets/Starbucks gift card.jpg" alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $15 Starbucks Gift card</h3>
-                                <P class = "Price"> $2364.00 JMD</P>
+                                <p class = "Price"> $2364.00 JMD</p>
                                 <button class = "Add-to-Cart" data-name = "$15 Starbucks Giftcard" data-price= "15.00">Add to Cart</button>
                             </div>
                         </div>
@@ -361,7 +397,7 @@
                             <img src ="../Assets/Starbucks gift card.jpg" alt = " Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $25 Starbucks Gift card</h3>
-                                <P class = "Price"> $3940.15.00 JMD </P>
+                                <p class = "Price"> $3940.15.00 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $25 Starbucks Giftcard" data-price= "25.00">Add to Cart</button>
                             </div>
                         </div>
@@ -370,7 +406,7 @@
                             <img src = "../Assets/Starbucks gift card.jpg" alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $50 Starbucks Gift card</h3>
-                                <P class = "Price"> $7880.00 JMD </P>
+                                <p class = "Price"> $7880.00 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $50 Starbucks Giftcard" data-price= "50.00">Add to Cart</button>
                             </div>
                         </div>
@@ -379,7 +415,7 @@
                             <img src = "../Assets/Starbucks gift card.jpg" alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $75 Starbucks Gift card</h3>
-                                <P class = "Price"> $11820.44 JMD </P>
+                                <p class = "Price"> $11820.44 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $75 Starbucks Giftcard" data-price= "75.00">Add to Cart</button>
                             </div>
                         </div>
@@ -388,7 +424,7 @@
                             <img src = "../Assets/Starbucks gift card.jpg"alt = "Starbuckd Gift card">
                             <div class = "Information">
                                 <h3> $100 Starbucks Gift card</h3>
-                                <P class = "Price"> $15760.59 JMD </P>
+                                <p class = "Price"> $15760.59 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $100 Starbucks Giftcard" data-price= "100.00">Add to Cart</button>
                             </div>
                         </div>
@@ -397,7 +433,7 @@
                             <img src = "../Assets/Starbucks gift card.jpg" alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $150 Apple Gift card</h3>
-                                <P class = "Price"> $23558.08 JMD </P>
+                                <p class = "Price"> $23558.08 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $150 Starbucks Giftcard" data-price= "150.00">Add to Cart</button>
                             </div>
                         </div>
@@ -406,7 +442,7 @@
                             <img src = "../Assets/Starbucks gift card.jpg" alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $200 Starbucks Gift card</h3>
-                                <P class = "Price"> $31521.18 JMD </P>
+                                <p class = "Price"> $31521.18 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$200 Starbucks Giftcard" data-price= "200.00">Add to Cart</button>
                             </div>
                         </div>
@@ -415,7 +451,7 @@
                             <img src ="../Assets/Starbucks gift card.jpg"alt = "Starbucks Gift card">
                             <div class = "Information">
                                 <h3> $ 250 Starbucks Gift card</h3>
-                                <P class = "Price"> $39263.47 JMD </P>
+                                <p class = "Price"> $39263.47 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $250 Starbucks Giftcard" data-price= "250.00">Add to Cart</button>
                             </div>
                         </div>
@@ -424,7 +460,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Gift card">
                             <div class = "Information">
                                 <h3> $ 25 Amazon Gift card</h3>
-                                <P class = "Price"> $3926.35 JMD </P>
+                                <p class = "Price"> $3926.35 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$25 Amazon Giftcard" data-price= "25.00">Add to Cart</button>
                             </div>
                         </div>
@@ -433,7 +469,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Gift card">
                             <div class = "Information">
                                 <h3> $ 50 Amazon Gift card</h3>
-                                <P class = "Price"> $7852.69 JMD </P>
+                                <p class = "Price"> $7852.69 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$50 Amazon Giftcard" data-price= "50.00">Add to Cart</button>
                             </div>
                         </div>
@@ -443,7 +479,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Giftcard">
                             <div class = "Information">
                                 <h3> $ 75 Amazon Gift card</h3>
-                                <P class = "Price"> $11779.04 JMD </P>
+                                <p class = "Price"> $11779.04 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $75 Amazon Giftcard card" data-price= "75.00">Add to Cart</button>
                             </div>
                         </div>
@@ -452,7 +488,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Giftcard">
                             <div class = "Information">
                                 <h3> $ 100 Amazon Gift card</h3>
-                                <P class = "Price"> $15705.39 JMD </P>
+                                <p class = "Price"> $15705.39 JMD </p>
                                 <button class = "Add-to-Cart" data-name = "$ 100 Amazon  card" data-price= "100.00">Add to Cart</button>
                             </div>
                         </div>
@@ -462,7 +498,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Giftcard">
                             <div class = "Information">
                                 <h3> $ 150 Amazon Gift card</h3>
-                                <P class = "Price"> $23558.08 JMD </P>
+                                <p class = "Price"> $23558.08 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $150 Amazon Giftcard card" data-price= "150.00">Add to Cart</button>
                             </div>
                         </div>
@@ -471,7 +507,7 @@
                             <img src ="../Assets/Amazon giftcards.webp" alt = "Amazon Giftcard">
                             <div class = "Information">
                                 <h3> $ 200 Amazon Gift card</h3>
-                                <P class = "Price"> $31410.78 JMD </P>
+                                <p class = "Price"> $31410.78 JMD </p>
                                 <button class = "Add-to-Cart" data-name = " $200 Amazon Giftcard" data-price= "200.00">Add to Cart</button>
                             </div>
                         </div>
