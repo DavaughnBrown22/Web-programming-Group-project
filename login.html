@@ -1,4 +1,5 @@
 <!-- Name: Davaughn Brown -->
+ <!--Name: -->
 <!-- ID number: 2111745 -->
 <!DOCTYPE html>
 <html lang ="en">
@@ -7,46 +8,136 @@
         <meta name = "viewport" content = "width=device-width,inital-scale=1" />
         <title> Login Page </title>
         <link rel = "stylesheet" href="../Style.css/style.css ">
+        <style>
+            body{
+                background-color: rgb(255, 255, 255);
+            }
+            .form-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .pageform{
+                background-color: rgb(243, 242, 242);
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                width: 100%;
+                max-width: 500px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .pageform a{
+                color: darkblue;
+                text-decoration: none;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .pageform h2{
+                text-align: center;
+                margin-bottom: 30px;
+                color: darkblue;
+                font-size: 56px;
+                font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .page-group{
+                margin-bottom: 20px;
+            }
+            .page-group label{
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                font-size:36px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .page-group input{
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size:26px;
+            }
+            #loginBtn, #cancelBtn{
+                width: 48%;
+                padding: 10px;
+                border-radius: 5px;
+                border:none;
+                color:white;
+                font-weight:bold;
+                font-size:20px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            #loginBtn{
+                background-color: darkblue;
+            }
+            #cancelBtn{
+                background-color: gray;
+            }
+            #loginBtn:hover {
+                background-color: navy; 
+            }
+            #cancelBtn:hover {
+                background-color: dimgray; 
+            }
+        </style>
     </head>
     <body>
+        <header>
+            <nav class = "navigationbar">
+                <div class="logo"></div>
+                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 90px; border-radius: 90%;">
+                <ul class = "navigation-links">
+                    <li><a href = "/Codes/product.html" class = "active"> Home </a></li>
+                    <li><a href = "/Codes/AboutUs.html"> About Us </a></li>
+                    <li><a href = "/Codes/index.html" >Login </a></li>
+                    <li><a href = "/Codes/Cart.html"> Cart</a></li>
+                </ul>
+            </nav>
+        </header>
         <main class = "form-container">
             <form id = "loginform" class = "pageform">
                 <link rel = "stylesheet" href = "..Style.css/style.css">
                 <h2>Hey!!!! Welcome Back</h2>
-    
+
                 <div class = "page-group">
                     <label for= 'trn'> TRN</label>
                     <input type = "text" id = "trn" name = 'trn' placeholder = "000-000-000" required>
+                    <span class = "error-message" id = "ErrorTrn"></span>
                 </div>
-    
+
                 <div class = "page-group">
                     <label for= 'password'> Password</label>
                     <input type = "password" id = "password" name = 'password' required>
+                    <span class = "error-message" id = "ErrorPassword"></span>
                 </div>
-    
+
                 <button type = "submit" id = "loginBtn"> Login </button>
                 <button type = "reset" id  = "cancelBtn"> Cancel </button>
-                <p> Are you a New user?<a href = "Registration.html">Register here</a></p>
-                <p><a href = "Reset Password.html" id = "resetPassword"> Reset Password </a></p>
-    
-                <p id="message" style="color:red; font-weight:bold;"></p>
+                <p style="font-size:20px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> 
+                    Are you a New user?<a href = "../Codes/Registration.html" target="_self"> Register here</a></p>
+                <p style="font-size:20px;"> 
+                    <a href = "../Codes/Reset
+                    Password.html" target="_self" id = "resetPassword"> Reset Password </a></p>
+                <br>
+                <p id="message" style="color:red; font-weight:bold; font-size:20px;">
+
+                </p>
             </form>
         </main>
         <script>
             let attempts = 0;
             document.addEventListener('DOMContentLoaded', () => {
             const loginform = document.getElementById('loginform');
-        
+
             loginform.addEventListener('submit', (e) => {
                 e.preventDefault();
-        
+
                 let trn = document.getElementById('trn').value.trim();
                 let password = document.getElementById('password').value.trim();
                 let msg = document.getElementById("message");
-        
+
                 let storedData = localStorage.getItem("RegistrationData");
                 let userArray = JSON.parse(storedData) || [];
-        
+
                 let Userfound = null;
                     for (let i = 0; i < userArray.length; i++) {
                         if (userArray[i].trn === trn && userArray[i].password === password) {
@@ -54,14 +145,14 @@
                             break; 
                         }
                     }
-                   
+                
                     if (Userfound != null) {
                         alert("Login successful!");
                         localStorage.setItem("currentUser", JSON.stringify(Userfound));
-                        window.location.href = "../Codes/product.html"; 
+                        window.location.href = "/Codes/product.html"; 
                     } else {
                         attempts = attempts + 1;
-        
+
                         if (attempts >= 3) {
                             alert("Account Locked! Redirecting...");
                             window.location.href = "../Codes/Account Lock.html";
