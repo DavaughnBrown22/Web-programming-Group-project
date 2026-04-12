@@ -3,11 +3,83 @@
     <head>
         <title>Register - GiftcardGo876</title>
         <link rel="stylesheet" href="../Style.css/style.css">
+        <style>
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .pageform {
+                background-color: #f9f9f9;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                height: fit-content;
+                max-width: 1000px;
+                width: 90%;
+            }
+            .pageform a{
+                color: darkblue;
+                text-decoration: none;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .pageform h2 {
+                text-align: center;
+                font-size: 56px;
+                margin-bottom: 20px;
+                font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .pageform label {
+                font-weight: bold;
+                font-size:36px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .pageform input, .pageform select {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 36px;
+            }
+            .pageform button {
+                width: 48%;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 26px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+            .pageform button[type="submit"] {
+                background-color: darkblue;
+                color: white;
+            }
+            .pageform button[type="reset"] {
+                background-color: #af2323;
+                color: white;
+            }
+        </style>
     </head>
     <body>
+        <header>
+            <nav class = "navigationbar">
+                <div class="logo"></div>
+                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 90px; border-radius: 90%;">
+                <ul class = "navigation-links">
+                    <li><a href = "/Codes/product.html" class = "active"> Home </a></li>
+                    <li><a href = "/Codes/AboutUs.html"> About Us </a></li>
+                    <li><a href = "/Codes/index.html" >Login </a></li>
+                    <li><a href = "/Codes/Cart.html"> Cart</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br><br><br><br><br><br><br><br><br><br>
         <main class="form-container">
             <form id="registrationForm" class="pageform">
-                <h2>Register an Account</h2>
+                <h2>Register an Account</h2><br>
 
                 <label>First Name:</label><br>
                 <input type="text" id="firstname" required><br><br>
@@ -43,7 +115,7 @@
                 <button type="submit">Register</button>
                 <button type="reset">Cancel</button>
 
-                <p>Already a user? <a href="/Codes/index.html">Login here</a></p>
+                <p style="font-size:23px">Already a user? <a href="/Codes/index.html">Login here</a></p>
             </form>
         </main>
         </div>
@@ -118,7 +190,7 @@
                     localStorage.setItem("RegistrationData", JSON.stringify(userList));
 
                     alert("Success! You can now login.");
-                    window.location.href = "/Codes/product.html";
+                    window.location.href = "/Codes/index.html";
                 }
             };
         </script>
