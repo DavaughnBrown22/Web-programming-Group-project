@@ -1,123 +1,321 @@
- <!-- Name: Davaughn Brown -->
+<!-- Name: Davaughn Brown -->
 <!-- ID number: 2111745 -->
 <!DOCTYPE html>
-<html lang ="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name = "viewport" content = "width=device-width,inital-scale=1" />
-        <title> About Us </title>
-        <link rel = "stylesheet" href="../Style.css/style.css ">
-        <style>
-            .title{
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="../Style.css/style.css">
+    <style>
+        .cart-title {
+            text-align: center;
+            font-size: 56px;
+            color: darkblue;
+            font-family: 'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-bottom: 30px;
+        }
+
+        .cart-wrapper {
+            width: min(1100px, 95%);
+            margin: 0 auto 40px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            font-size: 28px;
+            padding: 30px 20px;
+            color: darkred;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .Cart-Table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.95);
+            overflow: hidden;
+        }
+
+        .Cart-Table th,
+        .Cart-Table td {
+            border: 1px solid #d8d8d8;
+            padding: 14px 10px;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .Cart-Table th {
+            background: #112d5c;
+            color: white;
+            font-size: 20px;
+        }
+
+        .Cart-Table td {
+            font-size: 19px;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .cart-actions button,
+        .cart-summary button,
+        .cart-summary a button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .qty-btn {
+            background: #112d5c;
+            color: white;
+            min-width: 40px;
+        }
+
+        .remove-btn {
+            background: #9f1d1d;
+            color: white;
+        }
+
+        .cart-summary {
+            margin-top: 25px;
+            padding: 22px;
+            background: rgba(17, 45, 92, 0.1);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .cart-summary p {
+            margin: 0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .summary-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .clear-btn {
+            background: #9f1d1d;
+            color: white;
+        }
+
+        .checkout-btn {
+            background: #0f7b35;
+            color: white;
+        }
+
+        .shop-btn {
+            background: #112d5c;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .cart-title {
+                font-size: 40px;
+            }
+
+            .Cart-Table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .cart-summary {
+                flex-direction: column;
+                align-items: stretch;
                 text-align: center;
-                font-size: 56px;
-                font-family:'Broadway', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                color: darkblue;
-                margin-bottom: 30px;
             }
-            .Cart-Table{
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 20px;
-            }
-            .Cart-Table th, .Cart-Table td{
-                padding: 8px;
-                text-align: center;
-                font-size: 28px;
-                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            }
-        </style>
-    </head>
-    <body> 
-        <header>
-            <nav class = "navigationbar">
-                <div class="logo"></div>
-                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 90px; border-radius: 90%;">
-                <ul class = "navigation-links">
-                    <li><a href = "/Codes/product.html" class = "active"> Home </a></li>
-                    <li><a href = "/Codes/AboutUs.html"> About Us </a></li>
-                    <li><a href = "/Codes/index.html" >Login </a></li>
-                    <li><a href = "/Codes/Cart.html"> Cart</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main class = "container">
 
-            <br><br>
-            <h1 class = "title"> Your Shopping Cart</h1>
-            <br><br>
-                <table id = "TableCart" class = "Cart-Table">
-                    <thead>
-                        <tr>
-                            <th>Item Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Tax</th>
-                            <th>Discount</th>
-                            <th>Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody id = "cartItems"></tbody>
-                </table>
-                <br><br><br><br>
-                <div class  = "Summary-Cart">
-                    <p> Total Cost: <span id = "Total">$0.00</span></p>
-                    <button onclick = "clearCart()">Clear All</button>
-                    <a href="Checkout.html"><button>Check Out</button></a>
-                </div>
-        </main>
-        <script>
-            function loadCart(){
-                let CartData = localStorage.getItem('gf_cart');
-                let cart = JSON.parse(CartData);
+            .summary-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo"></div>
+            <img src="../Assets/GiftcardGo876.png" alt="Gift card logo" style="height: 90px; border-radius: 90%;">
+            <ul class="navigation-links">
+                <li><a href="/Codes/product.html">Home</a></li>
+                <li><a href="/Codes/AboutUs.html">About Us</a></li>
+                <li><a href="/Codes/index.html">Login</a></li>
+                <li><a href="/Codes/Cart.html" class="active">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
 
-                if(cart ==null){
-                    cart =[];
+    <main class="cart-wrapper">
+        <h1 class="cart-title">Your Shopping Cart</h1>
+
+        <table id="TableCart" class="Cart-Table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Tax</th>
+                    <th>Discount</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems"></tbody>
+        </table>
+
+        <div id="emptyCartMessage" class="cart-empty" style="display: none;">
+            Your cart is empty. Add some gift cards to get started.
+        </div>
+
+        <div class="cart-summary">
+            <p>Total Cost: <span id="Total">$0.00</span></p>
+            <div class="summary-buttons">
+                <button class="clear-btn" onclick="clearCart()">Clear All</button>
+                <a href="/Codes/product.html"><button class="shop-btn">Continue Shopping</button></a>
+                <a href="/Codes/Checkout.html"><button class="checkout-btn">Check Out</button></a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function getCart() {
+            return JSON.parse(localStorage.getItem('gf_cart')) || [];
+        }
+
+        function setCart(cart) {
+            localStorage.setItem('gf_cart', JSON.stringify(cart));
+        }
+
+        function groupCartItems(cart) {
+            let grouped = [];
+
+            cart.forEach(function(item) {
+                let cleanName = (item.name || '').trim();
+                let price = parseFloat(item.price) || 0;
+                let existingItem = grouped.find(function(group) {
+                    return group.name === cleanName && group.price === price;
+                });
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    grouped.push({
+                        name: cleanName,
+                        price: price,
+                        quantity: 1
+                    });
                 }
+            });
 
-                let tableBody = document.getElementById('cartItems');
-                let totalDisplay = document.getElementById('Total');
-                let finalBill = 0;
+            return grouped;
+        }
 
-                tableBody.innerHTML = "";
+        function saveTotal(total) {
+            localStorage.setItem('gf_total', total.toFixed(2));
+        }
 
-                for(let i = 0; i <cart.length; i++){
-                    let itemName = cart [i].name;
-                    let itemPrice = parseFloat(cart[i].price);
+        function loadCart() {
+            let cart = getCart();
+            let tableBody = document.getElementById('cartItems');
+            let totalDisplay = document.getElementById('Total');
+            let emptyMessage = document.getElementById('emptyCartMessage');
+            let table = document.getElementById('TableCart');
+            let groupedCart = groupCartItems(cart);
+            let finalBill = 0;
 
-                    let tax = itemPrice * 0.15;
-                    let discount = itemPrice * 0.10;
-                    let Subtotal = (itemPrice + tax) - discount;
-                
-                    //table row for each item in the cart
-                    let row = "<tr>";
-                    row += "<td>" + itemName + "</td>";
-                    row += "<td>$" + itemPrice.toFixed(2) + "</td>";
-                    row += "<td>1</td>";
-                    row += "<td>$" + tax.toFixed(2) + "</td>";
-                    row += "<td>-$" + discount.toFixed(2) + "</td>";
-                    row += "<td>$" + Subtotal.toFixed(2)+ "</td>";
-                    row += "</tr>";
+            tableBody.innerHTML = "";
 
-                    tableBody.innerHTML += row;
+            if (groupedCart.length === 0) {
+                emptyMessage.style.display = 'block';
+                table.style.display = 'none';
+                totalDisplay.textContent = '$0.00';
+                saveTotal(0);
+                return;
+            }
 
-                    finalBill = finalBill + Subtotal;
-                    
-                    totalDisplay.innerHTML = "$" + finalBill.toFixed(2);
+            emptyMessage.style.display = 'none';
+            table.style.display = 'table';
 
-                    // SAVE TOTAL FOR CHECKOUT PAGE
-                    localStorage.setItem('gf_total', finalBill.toFixed(2));
+            groupedCart.forEach(function(item) {
+                let tax = item.price * 0.15;
+                let discount = item.price * 0.10;
+                let subtotal = ((item.price + tax) - discount) * item.quantity;
+
+                let row = document.createElement('tr');
+                row.innerHTML =
+                    "<td>" + item.name + "</td>" +
+                    "<td>$" + item.price.toFixed(2) + "</td>" +
+                    "<td>" +
+                        "<div class='cart-actions'>" +
+                            "<button class='qty-btn' onclick=\"updateQuantity('" + encodeURIComponent(item.name) + "', " + item.price + ", -1)\">-</button>" +
+                            "<span>" + item.quantity + "</span>" +
+                            "<button class='qty-btn' onclick=\"updateQuantity('" + encodeURIComponent(item.name) + "', " + item.price + ", 1)\">+</button>" +
+                        "</div>" +
+                    "</td>" +
+                    "<td>$" + (tax * item.quantity).toFixed(2) + "</td>" +
+                    "<td>-$" + (discount * item.quantity).toFixed(2) + "</td>" +
+                    "<td>$" + subtotal.toFixed(2) + "</td>" +
+                    "<td><button class='remove-btn' onclick=\"removeItem('" + encodeURIComponent(item.name) + "', " + item.price + ")\">Remove</button></td>";
+
+                tableBody.appendChild(row);
+                finalBill += subtotal;
+            });
+
+            totalDisplay.textContent = "$" + finalBill.toFixed(2);
+            saveTotal(finalBill);
+        }
+
+        function updateQuantity(encodedName, price, change) {
+            let name = decodeURIComponent(encodedName);
+            let cart = getCart();
+
+            if (change > 0) {
+                cart.push({ name: name, price: price });
+            } else {
+                let itemIndex = cart.findIndex(function(item) {
+                    return (item.name || '').trim() === name && parseFloat(item.price) === price;
+                });
+
+                if (itemIndex !== -1) {
+                    cart.splice(itemIndex, 1);
                 }
-
-                totalDisplay.innerHTML = "$" +  finalBill.toFixed(2);
             }
 
-            function clearCart(){
-                localStorage.removeItem('gf_cart');
-                loadCart();
-            }
+            setCart(cart);
+            loadCart();
+        }
 
-            window.onload = loadCart;
-        </script>
-    </body>
+        function removeItem(encodedName, price) {
+            let name = decodeURIComponent(encodedName);
+            let cart = getCart().filter(function(item) {
+                return !((item.name || '').trim() === name && parseFloat(item.price) === price);
+            });
+
+            setCart(cart);
+            loadCart();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('gf_cart');
+            localStorage.removeItem('gf_total');
+            loadCart();
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
 </html>
