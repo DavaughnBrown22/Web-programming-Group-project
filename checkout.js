@@ -1,3 +1,4 @@
+//Question 4 - Show a summary of the shopping cart with the total cost.
 function SummaryOrderdisplay(){
     let cart = JSON.parse(localStorage.getItem('gf_cart')) || [];
     let Summary = document.getElementById('checkoutItems');
@@ -32,6 +33,7 @@ function SummaryOrderdisplay(){
     document.getElementById("rAmount").textContent = total.toFixed(2);
 }
 
+//Question 4 - Confirm button (confirms the checkout)
 function confirmOrder() {
     let name = document.getElementById('fullName').value;
     let amountPaid = parseFloat(document.getElementById('amountPaid').value);
@@ -87,7 +89,8 @@ function confirmOrder() {
     }
 }
 
-// Prevent errors from missing functions
+// Question 4 - Cancel button (go back to the cart)
+
 function clearCart(){
     localStorage.removeItem('gf_cart');
     location.reload();
@@ -105,7 +108,7 @@ function processCheckout(){
     window.onload = SummaryOrderdisplay;
 }
 
-
+//Question 5 - Append this invoice to the user’s array of invoices (array of objects). Also store the invoice to localStorage with the key called AllInvoices (as an array of objects) to access later.
 //Store Invoice in localStorage with the key called AllInvoices (as an array of objects) to access later. 
 function storeInvoice(){
     let invoice = {
