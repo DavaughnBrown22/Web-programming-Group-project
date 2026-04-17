@@ -1,5 +1,4 @@
 <!-- Name: Davaughn Brown -->
- <!--Name: -->
 <!-- ID number: 2111745 -->
 <!DOCTYPE html>
 <html lang ="en">
@@ -128,6 +127,8 @@
             document.addEventListener('DOMContentLoaded', () => {
             const loginform = document.getElementById('loginform');
 
+            //Question 1b - Login button (validate user login information)
+            //validate this login data by checking the currently entered trn and password against data associated with the localStorage key called, RegistrationData. 
             loginform.addEventListener('submit', (e) => {
                 e.preventDefault();
 
@@ -137,7 +138,6 @@
 
                 let storedData = localStorage.getItem("RegistrationData");
                 let userArray = JSON.parse(storedData) || [];
-
                 let Userfound = null;
                     for (let i = 0; i < userArray.length; i++) {
                         if (userArray[i].trn === trn && userArray[i].password === password) {
