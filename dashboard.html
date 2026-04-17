@@ -1,587 +1,592 @@
+<!-- Name: Abigail Wisdom -->
+<!-- ID number: 2206856 -->
 <!DOCTYPE html> <!-- dashboard.html -->
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Admin Dashboard - GiftcardGo876</title>
-    <link rel="stylesheet" href="../Style.css/style.css">
-    <style>
-        /* ── Dashboard-specific styles ── */
-        body {
-            background-color: #1a1a1a;
-            color: whitesmoke;
-            font-family: 'Times New Roman', Times, serif;
-        }
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Admin Dashboard - GiftcardGo876</title>
+        <link rel="stylesheet" href="../Style.css/style.css">
+        <style>
+            /* ── Dashboard-specific styles ── */
+            body {
+                background-color: #1a1a1a;
+                color: whitesmoke;
+                font-family: 'Times New Roman', Times, serif;
+            }
 
-        .dashboard-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
+            .dashboard-wrapper {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 30px 20px;
+            }
 
-        .dashboard-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: whitesmoke;
-        }
+            .dashboard-title {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 10px;
+                color: whitesmoke;
+            }
 
-        .dashboard-subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 40px;
-            font-size: 1rem;
-        }
+            .dashboard-subtitle {
+                text-align: center;
+                color: #aaa;
+                margin-bottom: 40px;
+                font-size: 1rem;
+            }
 
-        /* ── Section Cards ── */
-        .dash-section {
-            background-color: #2d2d2d;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
+            /* ── Section Cards ── */
+            .dash-section {
+                background-color: #2d2d2d;
+                border-radius: 10px;
+                padding: 25px;
+                margin-bottom: 35px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            }
 
-        .dash-section h2 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #555;
-            padding-bottom: 10px;
-            color: whitesmoke;
-        }
+            .dash-section h2 {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #555;
+                padding-bottom: 10px;
+                color: whitesmoke;
+            }
 
-        /* ── Frequency Charts ── */
-        .freq-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
+            /* ── Frequency Charts ── */
+            .freq-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
 
-        @media (max-width: 650px) {
-            .freq-grid { grid-template-columns: 1fr; }
-        }
+            @media (max-width: 650px) {
+                .freq-grid { grid-template-columns: 1fr; }
+            }
 
-        .freq-card {
-            background-color: #3a3a3a;
-            border-radius: 8px;
-            padding: 18px;
-        }
+            .freq-card {
+                background-color: #3a3a3a;
+                border-radius: 8px;
+                padding: 18px;
+            }
 
-        .freq-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
+            .freq-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+                color: #ccc;
+            }
 
-        .bar-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            gap: 10px;
-        }
+            .bar-row {
+                display: flex;
+                align-items: center;
+                margin-bottom: 12px;
+                gap: 10px;
+            }
 
-        .bar-label {
-            width: 80px;
-            font-size: 0.9rem;
-            color: #ddd;
-            flex-shrink: 0;
-        }
+            .bar-label {
+                width: 80px;
+                font-size: 0.9rem;
+                color: #ddd;
+                flex-shrink: 0;
+            }
 
-        .bar-track {
-            flex: 1;
-            background-color: #555;
-            border-radius: 4px;
-            height: 22px;
-            overflow: hidden;
-        }
+            .bar-track {
+                flex: 1;
+                background-color: #555;
+                border-radius: 4px;
+                height: 22px;
+                overflow: hidden;
+            }
 
-        .bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            background-color: gray;
-            transition: width 0.8s ease;
-            display: flex;
-            align-items: center;
-            padding-left: 6px;
-            font-size: 0.78rem;
-            color: white;
-            white-space: nowrap;
-        }
+            .bar-fill {
+                height: 100%;
+                border-radius: 4px;
+                background-color: gray;
+                transition: width 0.8s ease;
+                display: flex;
+                align-items: center;
+                padding-left: 6px;
+                font-size: 0.78rem;
+                color: white;
+                white-space: nowrap;
+            }
 
-        .bar-count {
-            width: 30px;
-            text-align: right;
-            font-size: 0.85rem;
-            color: #aaa;
-            flex-shrink: 0;
-        }
+            .bar-count {
+                width: 30px;
+                text-align: right;
+                font-size: 0.85rem;
+                color: #aaa;
+                flex-shrink: 0;
+            }
 
-        /* Gender colours */
-        .bar-male   { background-color: #4a7fa5; }
-        .bar-female { background-color: #a5506a; }
-        .bar-other  { background-color: #7a7a7a; }
+            /* Gender colours */
+            .bar-male   { background-color: #4a7fa5; }
+            .bar-female { background-color: #a5506a; }
+            .bar-other  { background-color: #7a7a7a; }
 
-        /* Age group colours */
-        .bar-age1 { background-color: #5a8f5a; }
-        .bar-age2 { background-color: #8f7a3a; }
-        .bar-age3 { background-color: #8f4a3a; }
-        .bar-age4 { background-color: #5a5a8f; }
+            /* Age group colours */
+            .bar-age1 { background-color: #5a8f5a; }
+            .bar-age2 { background-color: #8f7a3a; }
+            .bar-age3 { background-color: #8f4a3a; }
+            .bar-age4 { background-color: #5a5a8f; }
 
-        .no-data-msg {
-            color: #888;
-            font-style: italic;
-            font-size: 0.95rem;
-        }
+            .no-data-msg {
+                color: #888;
+                font-style: italic;
+                font-size: 0.95rem;
+            }
 
-        /* ── Invoice Search ── */
-        .search-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
+            /* ── Invoice Search ── */
+            .search-row {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
 
-        .search-row input {
-            flex: 1;
-            padding: 10px 14px;
-            border-radius: 5px;
-            border: 1px solid #555;
-            background-color: #3a3a3a;
-            color: whitesmoke;
-            font-size: 1rem;
-            font-family: 'Times New Roman', Times, serif;
-            min-width: 200px;
-        }
+            .search-row input {
+                flex: 1;
+                padding: 10px 14px;
+                border-radius: 5px;
+                border: 1px solid #555;
+                background-color: #3a3a3a;
+                color: whitesmoke;
+                font-size: 1rem;
+                font-family: 'Times New Roman', Times, serif;
+                min-width: 200px;
+            }
 
-        .search-row input::placeholder { color: #888; }
+            .search-row input::placeholder { color: #888; }
 
-        .dash-btn {
-            background-color: black;
-            color: whitesmoke;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            font-family: 'Times New Roman', Times, serif;
-        }
+            .dash-btn {
+                background-color: black;
+                color: whitesmoke;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+                font-family: 'Times New Roman', Times, serif;
+            }
 
-        .dash-btn:hover  { background-color: #333; transform: scale(1.02); }
-        .dash-btn:active { transform: scale(0.97); }
+            .dash-btn:hover  { background-color: #333; transform: scale(1.02); }
+            .dash-btn:active { transform: scale(0.97); }
 
-        /* ── Invoice Table ── */
-        .invoice-table-wrap {
-            overflow-x: auto;
-        }
+            /* ── Invoice Table ── */
+            .invoice-table-wrap {
+                overflow-x: auto;
+            }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+            }
 
-        table th {
-            background-color: #444;
-            color: whitesmoke;
-            padding: 12px 14px;
-            text-align: left;
-            border-bottom: 2px solid #666;
-        }
+            table th {
+                background-color: #444;
+                color: whitesmoke;
+                padding: 12px 14px;
+                text-align: left;
+                border-bottom: 2px solid #666;
+            }
 
-        table td {
-            padding: 11px 14px;
-            border-bottom: 1px solid #444;
-            color: #ddd;
-            vertical-align: top;
-        }
+            table td {
+                padding: 11px 14px;
+                border-bottom: 1px solid #444;
+                color: #ddd;
+                vertical-align: top;
+            }
 
-        table tr:hover td { background-color: #3a3a3a; }
+            table tr:hover td { background-color: #3a3a3a; }
 
-        .items-list {
-            margin: 0;
-            padding-left: 16px;
-            font-size: 0.85rem;
-            color: #bbb;
-        }
+            .items-list {
+                margin: 0;
+                padding-left: 16px;
+                font-size: 0.85rem;
+                color: #bbb;
+            }
 
-        /* ── User Invoice lookup ── */
-        .trn-result-box {
-            background-color: #3a3a3a;
-            border-radius: 8px;
-            padding: 18px;
-            margin-top: 15px;
-        }
+            /* ── User Invoice lookup ── */
+            .trn-result-box {
+                background-color: #3a3a3a;
+                border-radius: 8px;
+                padding: 18px;
+                margin-top: 15px;
+            }
 
-        .trn-result-box h3 {
-            margin-bottom: 14px;
-            font-size: 1.05rem;
-            color: #ccc;
-        }
+            .trn-result-box h3 {
+                margin-bottom: 14px;
+                font-size: 1.05rem;
+                color: #ccc;
+            }
 
-        .invoice-card {
-            background-color: #2d2d2d;
-            border: 1px solid #555;
-            border-radius: 7px;
-            padding: 15px;
-            margin-bottom: 14px;
-        }
+            .invoice-card {
+                background-color: #2d2d2d;
+                border: 1px solid #555;
+                border-radius: 7px;
+                padding: 15px;
+                margin-bottom: 14px;
+            }
 
-        .invoice-card p { margin: 5px 0; font-size: 0.93rem; color: #ddd; }
-        .invoice-card strong { color: whitesmoke; }
+            .invoice-card p { margin: 5px 0; font-size: 0.93rem; color: #ddd; }
+            .invoice-card strong { color: whitesmoke; }
 
-        /* ── Status messages ── */
-        .status-msg {
-            padding: 10px 14px;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
+            /* ── Status messages ── */
+            .status-msg {
+                padding: 10px 14px;
+                border-radius: 5px;
+                margin-top: 10px;
+                font-size: 0.95rem;
+            }
 
-        .status-error   { background-color: #5c1a1a; color: #ffaaaa; }
-        .status-success { background-color: #1a3d1a; color: #aaffaa; }
-        .status-info    { background-color: #1a2d4d; color: #aaccff; }
-    </style>
-</head>
-<body>
+            .status-error   { background-color: #5c1a1a; color: #ffaaaa; }
+            .status-success { background-color: #1a3d1a; color: #aaffaa; }
+            .status-info    { background-color: #1a2d4d; color: #aaccff; }
+        </style>
+    </head>
+    <body>
 
-    <!-- Navigation (matches the rest of the site) -->
-    <header>
-        <nav class="navigationbar">
-            <ul class="navigation-links">
-                <li><a href="/Codes/product.html">Home</a></li>
-                <li><a href="/Codes/Cart.html">Cart</a></li>
-                <li><a href="/Codes/Checkout.html">Checkout</a></li>
-                <li><a href="/Codes/dashboard.html" class="active">Dashboard</a></li>
-            </ul>
-        </nav>
-    </header>
+        <!-- Navigation (matches the rest of the site) -->
+        <header>
+            <nav class = "navigationbar">
+                <div class="logo"></div>
+                    <img src = "../Assets/GiftcardGo876.png" alt = "Gift card logo" style = "height: 90px; border-radius: 90%;">
+                <ul class = "navigation-links">
+                    <li><a href = "/Codes/product.html" class = "active"> Home </a></li>
+                    <li><a href = "/Codes/AboutUs.html"> About Us </a></li>
+                    <li><a href = "/Codes/index.html" >Login </a></li>
+                    <li><a href = "/Codes/Cart.html"> Cart</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <div class="dashboard-wrapper">
-        <h1 class="dashboard-title">Admin Dashboard</h1>
-        <p class="dashboard-subtitle">GiftcardGo876 &mdash; User &amp; Invoice Overview</p>
+         <!-- Main Dashboard Content -->
 
-        <!-- ══════════════════════════════════════════
-             SECTION 1 — ShowUserFrequency()
-        ══════════════════════════════════════════ -->
-        <div class="dash-section">
-            <h2>User Frequency &mdash; Gender &amp; Age Group</h2>
-            <div class="freq-grid">
-                <!-- Gender chart -->
-                <div class="freq-card">
-                    <h3>By Gender</h3>
-                    <div id="genderChart"><p class="no-data-msg">No registered users found.</p></div>
+        <div class="dashboard-wrapper">
+            <h1 class="dashboard-title">Admin Dashboard</h1>
+            <p class="dashboard-subtitle">GiftcardGo876 &mdash; User &amp; Invoice Overview</p>
+
+            <!-- ══════════════════════════════════════════
+                SECTION 1 — ShowUserFrequency()
+            ══════════════════════════════════════════ -->
+            <div class="dash-section">
+                <h2>User Frequency &mdash; Gender &amp; Age Group</h2>
+                <div class="freq-grid">
+                    <!-- Gender chart -->
+                    <div class="freq-card">
+                        <h3>By Gender</h3>
+                        <div id="genderChart"><p class="no-data-msg">No registered users found.</p></div>
+                    </div>
+                    <!-- Age group chart -->
+                    <div class="freq-card">
+                        <h3>By Age Group</h3>
+                        <div id="ageChart"><p class="no-data-msg">No registered users found.</p></div>
+                    </div>
                 </div>
-                <!-- Age group chart -->
-                <div class="freq-card">
-                    <h3>By Age Group</h3>
-                    <div id="ageChart"><p class="no-data-msg">No registered users found.</p></div>
+            </div>
+
+            <!-- ══════════════════════════════════════════
+                SECTION 2 — ShowInvoices()
+            ══════════════════════════════════════════ -->
+            <div class="dash-section">
+                <h2>All Invoices</h2>
+                <div class="search-row">
+                    <input type="text" id="invoiceSearchInput" placeholder="Search by TRN (e.g. 123-456-789)">
+                    <button class="dash-btn" onclick="ShowInvoices()">Search</button>
+                    <button class="dash-btn" onclick="ShowInvoices(true)">Show All</button>
+                </div>
+                <div id="invoiceSearchStatus"></div>
+                <div class="invoice-table-wrap">
+                    <div id="invoiceTableContainer"></div>
                 </div>
             </div>
-        </div>
 
-        <!-- ══════════════════════════════════════════
-             SECTION 2 — ShowInvoices()
-        ══════════════════════════════════════════ -->
-        <div class="dash-section">
-            <h2>All Invoices</h2>
-            <div class="search-row">
-                <input type="text" id="invoiceSearchInput" placeholder="Search by TRN (e.g. 123-456-789)">
-                <button class="dash-btn" onclick="ShowInvoices()">Search</button>
-                <button class="dash-btn" onclick="ShowInvoices(true)">Show All</button>
+            <!-- ══════════════════════════════════════════
+                SECTION 3 — GetUserInvoices()
+            ══════════════════════════════════════════ -->
+            <div class="dash-section">
+                <h2>My Invoices (Logged-in User)</h2>
+                <button class="dash-btn" onclick="GetUserInvoices()">Load My Invoices</button>
+                <div id="userInvoiceStatus"></div>
+                <div id="userInvoiceContainer"></div>
             </div>
-            <div id="invoiceSearchStatus"></div>
-            <div class="invoice-table-wrap">
-                <div id="invoiceTableContainer"></div>
-            </div>
-        </div>
 
-        <!-- ══════════════════════════════════════════
-             SECTION 3 — GetUserInvoices()
-        ══════════════════════════════════════════ -->
-        <div class="dash-section">
-            <h2>My Invoices (Logged-in User)</h2>
-            <button class="dash-btn" onclick="GetUserInvoices()">Load My Invoices</button>
-            <div id="userInvoiceStatus"></div>
-            <div id="userInvoiceContainer"></div>
-        </div>
+        </div><!-- end dashboard-wrapper -->
 
-    </div><!-- end dashboard-wrapper -->
+        <script>
+            // ════════════════════════════════════════════════════════
+            // FUNCTION 1: ShowUserFrequency()
+            // Reads RegistrationData from localStorage and builds
+            // bar-chart style breakdowns for Gender and Age Group.
+            // ════════════════════════════════════════════════════════
+            function ShowUserFrequency() {
+                let users = JSON.parse(localStorage.getItem('RegistrationData')) || [];
 
-    <script>
-        // ════════════════════════════════════════════════════════
-        // FUNCTION 1: ShowUserFrequency()
-        // Reads RegistrationData from localStorage and builds
-        // bar-chart style breakdowns for Gender and Age Group.
-        // ════════════════════════════════════════════════════════
-        function ShowUserFrequency() {
-            let users = JSON.parse(localStorage.getItem('RegistrationData')) || [];
+                // ── Gender tally ──
+                let genderCounts = { Male: 0, Female: 0, Other: 0 };
 
-            // ── Gender tally ──
-            let genderCounts = { Male: 0, Female: 0, Other: 0 };
+                // ── Age group tally ──
+                let ageCounts = { '18-25': 0, '26-35': 0, '36-50': 0, '50+': 0 };
 
-            // ── Age group tally ──
-            let ageCounts = { '18-25': 0, '26-35': 0, '36-50': 0, '50+': 0 };
+                let today = new Date();
 
-            let today = new Date();
-
-            users.forEach(function(user) {
-                // Gender
-                if (user.gender === 'Male') {
-                    genderCounts.Male++;
-                } else if (user.gender === 'Female') {
-                    genderCounts.Female++;
-                } else {
-                    genderCounts.Other++;
-                }
-
-                // Age calculation from dob
-                if (user.dob) {
-                    let birthDate = new Date(user.dob);
-                    let age = today.getFullYear() - birthDate.getFullYear();
-                    let monthDiff = today.getMonth() - birthDate.getMonth();
-                    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                        age--;
+                users.forEach(function(user) {
+                    // Gender
+                    if (user.gender === 'Male') {
+                        genderCounts.Male++;
+                    } else if (user.gender === 'Female') {
+                        genderCounts.Female++;
+                    } else {
+                        genderCounts.Other++;
                     }
 
-                    if (age >= 18 && age <= 25) {
-                        ageCounts['18-25']++;
-                    } else if (age >= 26 && age <= 35) {
-                        ageCounts['26-35']++;
-                    } else if (age >= 36 && age <= 50) {
-                        ageCounts['36-50']++;
-                    } else if (age > 50) {
-                        ageCounts['50+']++;
+                    // Age calculation from dob
+                    if (user.dob) {
+                        let birthDate = new Date(user.dob);
+                        let age = today.getFullYear() - birthDate.getFullYear();
+                        let monthDiff = today.getMonth() - birthDate.getMonth();
+                        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                            age--;
+                        }
+
+                        if (age >= 18 && age <= 25) {
+                            ageCounts['18-25']++;
+                        } else if (age >= 26 && age <= 35) {
+                            ageCounts['26-35']++;
+                        } else if (age >= 36 && age <= 50) {
+                            ageCounts['36-50']++;
+                        } else if (age > 50) {
+                            ageCounts['50+']++;
+                        }
                     }
-                }
-            });
-
-            let total = users.length;
-
-            // ── Render Gender Chart ──
-            let genderHTML = '';
-            if (total === 0) {
-                genderHTML = '<p class="no-data-msg">No registered users found.</p>';
-            } else {
-                let genderColors = { Male: 'bar-male', Female: 'bar-female', Other: 'bar-other' };
-                for (let g in genderCounts) {
-                    let count = genderCounts[g];
-                    let pct = total > 0 ? Math.round((count / total) * 100) : 0;
-                    genderHTML += `
-                        <div class="bar-row">
-                            <span class="bar-label">${g}</span>
-                            <div class="bar-track">
-                                <div class="bar-fill ${genderColors[g]}" style="width:${pct}%">${pct > 10 ? pct + '%' : ''}</div>
-                            </div>
-                            <span class="bar-count">${count}</span>
-                        </div>`;
-                }
-            }
-            document.getElementById('genderChart').innerHTML = genderHTML;
-
-            // ── Render Age Chart ──
-            let ageHTML = '';
-            if (total === 0) {
-                ageHTML = '<p class="no-data-msg">No registered users found.</p>';
-            } else {
-                let ageColors = ['bar-age1', 'bar-age2', 'bar-age3', 'bar-age4'];
-                let idx = 0;
-                for (let a in ageCounts) {
-                    let count = ageCounts[a];
-                    let pct = total > 0 ? Math.round((count / total) * 100) : 0;
-                    ageHTML += `
-                        <div class="bar-row">
-                            <span class="bar-label">${a}</span>
-                            <div class="bar-track">
-                                <div class="bar-fill ${ageColors[idx]}" style="width:${pct}%">${pct > 10 ? pct + '%' : ''}</div>
-                            </div>
-                            <span class="bar-count">${count}</span>
-                        </div>`;
-                    idx++;
-                }
-            }
-            document.getElementById('ageChart').innerHTML = ageHTML;
-
-            // Console output
-            console.log("=== ShowUserFrequency() ===");
-            console.log("Total registered users:", total);
-            console.log("Gender breakdown:", genderCounts);
-            console.log("Age group breakdown:", ageCounts);
-        }
-
-
-        // ════════════════════════════════════════════════════════
-        // FUNCTION 2: ShowInvoices()
-        // Displays all invoices from AllInvoices in localStorage.
-        // If showAll is false, filters by the TRN typed in the
-        // search box. Results also logged via console.log().
-        // ════════════════════════════════════════════════════════
-        function ShowInvoices(showAll) {
-            let allInvoices = JSON.parse(localStorage.getItem('AllInvoices')) || [];
-            let statusEl   = document.getElementById('invoiceSearchStatus');
-            let containerEl = document.getElementById('invoiceTableContainer');
-            let searchTrn  = document.getElementById('invoiceSearchInput').value.trim();
-
-            let filtered = allInvoices;
-
-            // Filter by TRN unless showAll flag is set
-            if (!showAll && searchTrn !== '') {
-                filtered = allInvoices.filter(function(inv) {
-                    return inv.trn === searchTrn;
                 });
+
+                let total = users.length;
+
+                // ── Render Gender Chart ──
+                let genderHTML = '';
+                if (total === 0) {
+                    genderHTML = '<p class="no-data-msg">No registered users found.</p>';
+                } else {
+                    let genderColors = { Male: 'bar-male', Female: 'bar-female', Other: 'bar-other' };
+                    for (let g in genderCounts) {
+                        let count = genderCounts[g];
+                        let pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                        genderHTML += `
+                            <div class="bar-row">
+                                <span class="bar-label">${g}</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill ${genderColors[g]}" style="width:${pct}%">${pct > 10 ? pct + '%' : ''}</div>
+                                </div>
+                                <span class="bar-count">${count}</span>
+                            </div>`;
+                    }
+                }
+                document.getElementById('genderChart').innerHTML = genderHTML;
+
+                // ── Render Age Chart ──
+                let ageHTML = '';
+                if (total === 0) {
+                    ageHTML = '<p class="no-data-msg">No registered users found.</p>';
+                } else {
+                    let ageColors = ['bar-age1', 'bar-age2', 'bar-age3', 'bar-age4'];
+                    let idx = 0;
+                    for (let a in ageCounts) {
+                        let count = ageCounts[a];
+                        let pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                        ageHTML += `
+                            <div class="bar-row">
+                                <span class="bar-label">${a}</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill ${ageColors[idx]}" style="width:${pct}%">${pct > 10 ? pct + '%' : ''}</div>
+                                </div>
+                                <span class="bar-count">${count}</span>
+                            </div>`;
+                        idx++;
+                    }
+                }
+                document.getElementById('ageChart').innerHTML = ageHTML;
+
+                // Console output
+                console.log("=== ShowUserFrequency() ===");
+                console.log("Total registered users:", total);
+                console.log("Gender breakdown:", genderCounts);
+                console.log("Age group breakdown:", ageCounts);
             }
 
-            // ── Console output (as required by assignment) ──
-            console.log("=== ShowInvoices() ===");
-            if (!showAll && searchTrn !== '') {
-                console.log("Searching for TRN:", searchTrn);
-            }
-            console.log("Invoices found:", filtered.length);
-            console.log(filtered);
 
-            // ── Status message ──
-            if (allInvoices.length === 0) {
-                statusEl.innerHTML = '<div class="status-msg status-info">No invoices are stored yet. Complete a checkout to generate one.</div>';
-                containerEl.innerHTML = '';
-                return;
-            }
+            // ════════════════════════════════════════════════════════
+            // FUNCTION 2: ShowInvoices()
+            // Displays all invoices from AllInvoices in localStorage.
+            // If showAll is false, filters by the TRN typed in the
+            // search box. Results also logged via console.log().
+            // ════════════════════════════════════════════════════════
+            function ShowInvoices(showAll) {
+                let allInvoices = JSON.parse(localStorage.getItem('AllInvoices')) || [];
+                let statusEl   = document.getElementById('invoiceSearchStatus');
+                let containerEl = document.getElementById('invoiceTableContainer');
+                let searchTrn  = document.getElementById('invoiceSearchInput').value.trim();
 
-            if (filtered.length === 0) {
-                statusEl.innerHTML = '<div class="status-msg status-error">No invoices found for TRN: <strong>' + searchTrn + '</strong></div>';
-                containerEl.innerHTML = '';
-                return;
-            }
+                let filtered = allInvoices;
 
-            statusEl.innerHTML = '<div class="status-msg status-success">Showing ' + filtered.length + ' invoice(s).</div>';
+                // Filter by TRN unless showAll flag is set
+                if (!showAll && searchTrn !== '') {
+                    filtered = allInvoices.filter(function(inv) {
+                        return inv.trn === searchTrn;
+                    });
+                }
 
-            // ── Build table ──
-            let tableHTML = `
-                <table>
-                    <thead>
+                // ── Console output (as required by assignment) ──
+                console.log("=== ShowInvoices() ===");
+                if (!showAll && searchTrn !== '') {
+                    console.log("Searching for TRN:", searchTrn);
+                }
+                console.log("Invoices found:", filtered.length);
+                console.log(filtered);
+
+                // ── Status message ──
+                if (allInvoices.length === 0) {
+                    statusEl.innerHTML = '<div class="status-msg status-info">No invoices are stored yet. Complete a checkout to generate one.</div>';
+                    containerEl.innerHTML = '';
+                    return;
+                }
+
+                if (filtered.length === 0) {
+                    statusEl.innerHTML = '<div class="status-msg status-error">No invoices found for TRN: <strong>' + searchTrn + '</strong></div>';
+                    containerEl.innerHTML = '';
+                    return;
+                }
+
+                statusEl.innerHTML = '<div class="status-msg status-success">Showing ' + filtered.length + ' invoice(s).</div>';
+
+                // ── Build table ──
+                let tableHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>TRN</th>
+                                <th>Full Name</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total (JMD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
+                filtered.forEach(function(inv) {
+                    let itemsList = '';
+                    if (inv.items && inv.items.length > 0) {
+                        itemsList = '<ul class="items-list">';
+                        inv.items.forEach(function(item) {
+                            itemsList += '<li>' + item.name + ' - $' + parseFloat(item.price).toFixed(2) + '</li>';
+                        });
+                        itemsList += '</ul>';
+                    } else {
+                        itemsList = '<span style="color:#888;">—</span>';
+                    }
+
+                    tableHTML += `
                         <tr>
-                            <th>Invoice ID</th>
-                            <th>TRN</th>
-                            <th>Full Name</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Total (JMD)</th>
-                        </tr>
-                    </thead>
-                    <tbody>`;
+                            <td>${inv.invoiceId || '—'}</td>
+                            <td>${inv.trn || '—'}</td>
+                            <td>${inv.fullName || '—'}</td>
+                            <td>${inv.date || '—'}</td>
+                            <td>${itemsList}</td>
+                            <td>$${parseFloat(inv.totalAmount || 0).toFixed(2)}</td>
+                        </tr>`;
+                });
 
-            filtered.forEach(function(inv) {
-                let itemsList = '';
-                if (inv.items && inv.items.length > 0) {
-                    itemsList = '<ul class="items-list">';
-                    inv.items.forEach(function(item) {
-                        itemsList += '<li>' + item.name + ' - $' + parseFloat(item.price).toFixed(2) + '</li>';
-                    });
-                    itemsList += '</ul>';
-                } else {
-                    itemsList = '<span style="color:#888;">—</span>';
+                tableHTML += '</tbody></table>';
+                containerEl.innerHTML = tableHTML;
+            }
+
+
+            // ════════════════════════════════════════════════════════
+            // FUNCTION 3: GetUserInvoices()
+            // Reads the currently logged-in user's TRN from
+            // RegistrationData (key: RegisterData per assignment, but
+            // the project saves as RegistrationData — both checked).
+            // Filters AllInvoices for that user's TRN and displays
+            // them on the page and via console.log().
+            // ════════════════════════════════════════════════════════
+            function GetUserInvoices() {
+                let statusEl    = document.getElementById('userInvoiceStatus');
+                let containerEl = document.getElementById('userInvoiceContainer');
+
+                // Get the currently logged-in user
+                // login.html stores them under "currentUser"
+                let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+                if (!currentUser) {
+                    statusEl.innerHTML = '<div class="status-msg status-error">No user is currently logged in. Please <a href="/Codes/login.html" style="color:#ffaaaa;">login</a> first.</div>';
+                    containerEl.innerHTML = '';
+                    console.log("=== GetUserInvoices() ===");
+                    console.log("No logged-in user found in localStorage.");
+                    return;
                 }
 
-                tableHTML += `
-                    <tr>
-                        <td>${inv.invoiceId || '—'}</td>
-                        <td>${inv.trn || '—'}</td>
-                        <td>${inv.fullName || '—'}</td>
-                        <td>${inv.date || '—'}</td>
-                        <td>${itemsList}</td>
-                        <td>$${parseFloat(inv.totalAmount || 0).toFixed(2)}</td>
-                    </tr>`;
-            });
+                let userTrn = currentUser.trn;
+                let allInvoices = JSON.parse(localStorage.getItem('AllInvoices')) || [];
 
-            tableHTML += '</tbody></table>';
-            containerEl.innerHTML = tableHTML;
-        }
+                // Filter invoices belonging to this user
+                let userInvoices = allInvoices.filter(function(inv) {
+                    return inv.trn === userTrn;
+                });
 
-
-        // ════════════════════════════════════════════════════════
-        // FUNCTION 3: GetUserInvoices()
-        // Reads the currently logged-in user's TRN from
-        // RegistrationData (key: RegisterData per assignment, but
-        // the project saves as RegistrationData — both checked).
-        // Filters AllInvoices for that user's TRN and displays
-        // them on the page and via console.log().
-        // ════════════════════════════════════════════════════════
-        function GetUserInvoices() {
-            let statusEl    = document.getElementById('userInvoiceStatus');
-            let containerEl = document.getElementById('userInvoiceContainer');
-
-            // Get the currently logged-in user
-            // login.html stores them under "currentUser"
-            let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-            if (!currentUser) {
-                statusEl.innerHTML = '<div class="status-msg status-error">No user is currently logged in. Please <a href="/Codes/login.html" style="color:#ffaaaa;">login</a> first.</div>';
-                containerEl.innerHTML = '';
+                // ── Console output ──
                 console.log("=== GetUserInvoices() ===");
-                console.log("No logged-in user found in localStorage.");
-                return;
-            }
+                console.log("Logged-in user TRN:", userTrn);
+                console.log("Invoices for this user:", userInvoices.length);
+                console.log(userInvoices);
 
-            let userTrn = currentUser.trn;
-            let allInvoices = JSON.parse(localStorage.getItem('AllInvoices')) || [];
-
-            // Filter invoices belonging to this user
-            let userInvoices = allInvoices.filter(function(inv) {
-                return inv.trn === userTrn;
-            });
-
-            // ── Console output ──
-            console.log("=== GetUserInvoices() ===");
-            console.log("Logged-in user TRN:", userTrn);
-            console.log("Invoices for this user:", userInvoices.length);
-            console.log(userInvoices);
-
-            // ── Status message ──
-            if (userInvoices.length === 0) {
-                statusEl.innerHTML = '<div class="status-msg status-info">No invoices found for your account (TRN: ' + userTrn + ').</div>';
-                containerEl.innerHTML = '';
-                return;
-            }
-
-            statusEl.innerHTML = '<div class="status-msg status-success">Found ' + userInvoices.length + ' invoice(s) for TRN: <strong>' + userTrn + '</strong></div>';
-
-            // ── Build invoice cards ──
-            let cardsHTML = '<div class="trn-result-box"><h3>Your Invoices</h3>';
-
-            userInvoices.forEach(function(inv) {
-                let itemsHTML = '';
-                if (inv.items && inv.items.length > 0) {
-                    inv.items.forEach(function(item) {
-                        itemsHTML += '<li>' + item.name + ' — $' + parseFloat(item.price).toFixed(2) + ' JMD</li>';
-                    });
-                    itemsHTML = '<ul class="items-list">' + itemsHTML + '</ul>';
-                } else {
-                    itemsHTML = '<p style="color:#888;">No items recorded.</p>';
+                // ── Status message ──
+                if (userInvoices.length === 0) {
+                    statusEl.innerHTML = '<div class="status-msg status-info">No invoices found for your account (TRN: ' + userTrn + ').</div>';
+                    containerEl.innerHTML = '';
+                    return;
                 }
 
-                cardsHTML += `
-                    <div class="invoice-card">
-                        <p><strong>Invoice ID:</strong> ${inv.invoiceId || '—'}</p>
-                        <p><strong>Date:</strong> ${inv.date || '—'}</p>
-                        <p><strong>Name:</strong> ${inv.fullName || '—'}</p>
-                        <p><strong>Address:</strong> ${inv.address || '—'}</p>
-                        <p><strong>Items Purchased:</strong></p>
-                        ${itemsHTML}
-                        <p><strong>Total:</strong> $${parseFloat(inv.totalAmount || 0).toFixed(2)} JMD</p>
-                    </div>`;
-            });
+                statusEl.innerHTML = '<div class="status-msg status-success">Found ' + userInvoices.length + ' invoice(s) for TRN: <strong>' + userTrn + '</strong></div>';
 
-            cardsHTML += '</div>';
-            containerEl.innerHTML = cardsHTML;
-        }
+                // ── Build invoice cards ──
+                let cardsHTML = '<div class="trn-result-box"><h3>Your Invoices</h3>';
+
+                userInvoices.forEach(function(inv) {
+                    let itemsHTML = '';
+                    if (inv.items && inv.items.length > 0) {
+                        inv.items.forEach(function(item) {
+                            itemsHTML += '<li>' + item.name + ' — $' + parseFloat(item.price).toFixed(2) + ' JMD</li>';
+                        });
+                        itemsHTML = '<ul class="items-list">' + itemsHTML + '</ul>';
+                    } else {
+                        itemsHTML = '<p style="color:#888;">No items recorded.</p>';
+                    }
+
+                    cardsHTML += `
+                        <div class="invoice-card">
+                            <p><strong>Invoice ID:</strong> ${inv.invoiceId || '—'}</p>
+                            <p><strong>Date:</strong> ${inv.date || '—'}</p>
+                            <p><strong>Name:</strong> ${inv.fullName || '—'}</p>
+                            <p><strong>Address:</strong> ${inv.address || '—'}</p>
+                            <p><strong>Items Purchased:</strong></p>
+                            ${itemsHTML}
+                            <p><strong>Total:</strong> $${parseFloat(inv.totalAmount || 0).toFixed(2)} JMD</p>
+                        </div>`;
+                });
+
+                cardsHTML += '</div>';
+                containerEl.innerHTML = cardsHTML;
+            }
 
 
-        // ── Run frequency chart automatically on page load ──
-        window.onload = function() {
-            ShowUserFrequency();
-            ShowInvoices(true); // show all invoices by default on load
-        };
-    </script>
-
-</body>
+            // ── Run frequency chart automatically on page load ──
+            window.onload = function() {
+                ShowUserFrequency();
+                ShowInvoices(true); // show all invoices by default on load
+            };
+        </script>
+    </body>
 </html>
