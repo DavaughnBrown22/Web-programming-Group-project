@@ -55,6 +55,7 @@ const products = [
     {category: "Retail", name: "$200 Amazon Gift Card", price: 31410.78, description: "Amazon $200 gift card", image: "../Assets/Amazon giftcards.webp"}
 ];
 
+//Question 2 - An updated product list must be kept on localStorage, as AllProducts.
 // Save to localStorage
 localStorage.setItem('AllProducts', JSON.stringify(products));
 
@@ -81,7 +82,7 @@ products.forEach(product => { // Loop through each product in the products array
     `;
 });
 
-// Add to Cart
+// Question 2 - Add to Cart
 document.addEventListener('click', function(clicked) {
     if (clicked.target.classList.contains('Add-to-Cart')) {
         let cart = JSON.parse(localStorage.getItem('gf_cart')) || [];
